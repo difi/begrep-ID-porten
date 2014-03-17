@@ -15,13 +15,14 @@ group: ID-Porten/complexType
 h4. Attributer
 
 |_. Term |_. Beskrivelse |_. Kardinalitet |
-| AuthnContextClassRef| Autentiseringsnivå spesifisert i henhold til kodeverk for "#AuthnContextClassRef":AuthnContextClassRef beskrevet under | 0..1 |
+| AuthnContextClassRef| Autentiseringsnivå spesifisert i henhold til kodeverk for "AuthnContextClassRef":#AuthnContextClassRef beskrevet under | 0..1 |
 | ForceAuth | Vil kreve at brukeren gjennomfører autentisering . | 0..1 |
 | locale | "spraak":/Felles/spraak | 0..1 |
 | OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
 
 
 h4. AuthnContextClassRef
+
 Kodeverk for AuthnContextClassRef er definert som under, der hver AuthnContextClassRef er knyttet til et spesielt "sikkerhetsnivaa":/Felles/sikkerhetsnivaa slik:
 
 |_. AuthnContextClassRef |_. "sikkerhetsnivaa":/Felles/sikkerhetsnivaa |
