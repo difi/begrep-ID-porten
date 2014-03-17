@@ -2,13 +2,13 @@
 layout: default
 title: SAMLAssertionV3
 headtitle: ID-porten
-group: ID-Porten/complexType
+group: ID-porten/complexType
 ---
 
 - Identifikator := <a href="/Oppslagstjenesten/{{page.title}}">http://begrep.difi.no{{ page.url }}</a>
 - Term := {{page.title}}
 - Definisjon := Utvidet informasjon om en Person utlevert via ID-porten dersom Offentlig Virksomhet har spesifisert behov for dette
-- Datatype := complexType
+- Datatype := "SAML_2.0_Assertion":http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
 - Kilde := DIFI
 - Kommentar := Den informasjon som utleveres i ID-porten sin SAML2 profil ved Autentisering dersom Avsender har behov for informasjon fra kontakt og reservasjonsregisteret
 
@@ -23,6 +23,7 @@ h4. Attributer
 | "status":/Felles/status  | Kodeverk for "status":#status | 0..1 |
 | "mobiltelefonnummer":/Felles/mobiltelefonnummer | "mobiltelefonnummer":/Felles/mobiltelefonnummer | 0..1 |
 | "epostadresse":/Felles/epostadresse | "epostadresse":/Felles/epostadresse | 0..1 |
+| "reservasjon":/Felles/reservasjon | "reservasjon":/Felles/reservasjon | 0..1 |
 | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | 0..1 |
 
 h4. Kodeverk
@@ -43,6 +44,34 @@ Ved IKKE_REGISTRERT har ikke registeret informasjon om "mobiltelefonnummer":/Fel
 h4. Eksempel
 
 <pre class="brush: xml; toolbar: false">
+
+   <saml:AttributeStatement>
+      <saml:Attribute Name="uid">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">03015561903</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="Culture">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">nb</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="epostadresse">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">03015561903-test@minid.norge.no</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="mobiltelefonnummer">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">03015561903</saml:AttributeValue>
+      </saml:Attribute>	  
+      <saml:Attribute Name="status">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">AKTIV</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="reservasjon">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">NEI</saml:AttributeValue>
+      </saml:Attribute>	  
+      <saml:Attribute Name="AuthMethod">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Minid-PIN</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="SecurityLevel">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
+      </saml:Attribute>
+   </saml:AttributeStatement>
+
 
 </pre>
 

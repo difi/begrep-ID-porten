@@ -3,19 +3,25 @@ layout: default
 title: ID-porten
 headtitle: ID-porten
 ---
+
+ID-porten er et nav/tillitsanker for offentlig virksomheter. ID-porten knytter de offentlige virksomhetene og e-ID leverandørene sammen.
+
 h3. Integrasjonsguide:
 
 * utleveres ved å kontakte "idporten@difi.no":mailto:idporten@difi.no
 
+h3. Autentiseringsforespørsel
 
-h3. Klassedefinisjonen:
+"SAMLAuthnRequest":SAMLAuthnRequest
 
-<ul class='nav'>
-{% assign pages_list = site.pages %}
-{% assign group = "ID-Porten/complexType" %}
-	       {% include menu.html %}
+h3. SAML2Assertion profiler
 
-</ul>
+ID-porten har følgende forskjellige profiler:
+
+|_. Profilnavn |_. Beskrivelse |
+| "SAMLAssertionV1":SAMLAssertionV1 | Standard profil |
+| "SAMLAssertionV2":SAMLAssertionV2 | FORELDET, kun tilgjengelig for å være bakoverkompatibel |
+| "SAMLAssertionV3":SAMLAssertionV3 | Utvidet profil med informasjon fra kontakt og reservasjonsregisteret |
 
 
 
