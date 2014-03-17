@@ -1,0 +1,46 @@
+---
+layout: default
+title: SAMLAssertionV2
+headtitle: ID-porten
+group: ID-Porten/complexType
+---
+
+- Identifikator := <a href="/Oppslagstjenesten/{{page.title}}">http://begrep.difi.no{{ page.url }}</a>
+- Term := {{page.title}}
+- Definisjon := Informasjon om en Person utlevert via ID-porten dersom Offentlig Virksomhet har tatt i bruk første versjon av kontaktregisteret
+- Datatype := complexType
+- Kilde := DIFI
+- Kommentar := FORELDET PROFIL: Den informasjon som utleveres i ID-porten sin SAML2 profil ved Autentisering dersom Avsender er integrert mot første versjon av kontaktregisteret
+
+h4. Attributer
+
+|_. Term |_. Beskrivelse |_. Kardinalitet |
+| uid | "personidentifikator":/Felles/personidentifikator | 1|
+| SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
+| AuthMethod | "Autentiseringsmetode":SAMLAssertionV1#AuthMethod | 1 |
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
+| AuthnContextClassRef| Autentiseringsnivå spesifisert i henhold til kodeverk for "SAMLAuthnRequest#AuthnContextClassRef":AuthnContextClassRef | 1 |
+| Email | "epostadresse":/Felles/epostadresse | 0..1 |
+| MobilePhone | "mobiltelefonnummer":/Felles/mobiltelefonnummer | 0..1 |
+| DigitalContactInfoStatus | Status | 1 |
+
+h4. Kodeverk
+
+h5. Status
+
+|_. DigitalContactInfoStatus |_. Beskrivelse |
+| SAMTYKKET_GENERELT	| Bruker har samtykket til utlevering av Digital kontaktinformasjon til alle tjenesteeiere |
+| SAMTYKKET_SPESIFIKT	| Sluttbruker har samtykket til utlevering av Digital kontaktinformasjon til tjenesteeier. |
+| IKKE_SAMTYKKET	| Det er ikke registrert noe samtykke for sluttbruker |
+| SAMTYKKE_AVVIST	| Bruker har aktivt avvist samtykke om utlevering av Digital kontaktinformasjon |
+| IKKE_REGISTRERT	| Sluttbruker er ikke registrert i Digitalt kontaktregister. |
+| SYSTEMFEIL	| ID-porten har ikke informasjon om Digital kontaktinformasjon, f.eks. ved feil i integrasjon mot registrert. |
+
+
+h4. Eksempel
+
+<pre class="brush: xml; toolbar: false">
+
+</pre>
+
+

@@ -1,0 +1,21 @@
+---
+layout: default
+title: ID-porten
+headtitle: ID-porten
+---
+h3. Integrasjonsguide:
+
+* utleveres ved å kontakte "idporten@difi.no":mailto:idporten@difi.no
+
+
+h3. Klassedefinisjonen:
+
+<ul class='nav'>
+{% assign pages_list = site.pages %}
+{% assign group = "ID-Porten/complexType" %}
+	       {% include menu.html %}
+
+</ul>
+
+
+

@@ -1,0 +1,39 @@
+---
+layout: default
+title: SAMLAuthnRequest
+headtitle: ID-porten
+group: ID-Porten/complexType
+---
+
+- Identifikator := <a href="/Oppslagstjenesten/{{page.title}}">http://begrep.difi.no{{ page.url }}</a>
+- Term := {{page.title}}
+- Definisjon := Forespørsel om autentisering
+- Datatype := complexType
+- Kilde := DIFI
+- Kommentar := Den informasjon som overføres til ID-porten for å forespørre en autentisering.
+
+h4. Attributer
+
+|_. Term |_. Beskrivelse |_. Kardinalitet |
+| AuthnContextClassRef| Autentiseringsnivå spesifisert i henhold til kodeverk for "#AuthnContextClassRef":AuthnContextClassRef beskrevet under | 0..1 |
+| ForceAuth | Vil kreve at brukeren gjennomfører autentisering . | 0..1 |
+| locale | "spraak":/Felles/spraak | 0..1 |
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
+
+
+h4. AuthnContextClassRef
+Kodeverk for AuthnContextClassRef er definert som under, der hver AuthnContextClassRef er knyttet til et spesielt "sikkerhetsnivaa":/Felles/sikkerhetsnivaa slik:
+
+|_. AuthnContextClassRef |_. "sikkerhetsnivaa":/Felles/sikkerhetsnivaa |
+| urn:oasis:names:tc:SAML:2.0:ac:classes:Unspecified | 3 |
+| urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport | 3 |
+| urn:oasis:names:tc:SAML:2.0:ac:classes:SmartcardPKI | 4 |
+
+
+h4. eksempel
+
+<pre class="brush: xml; toolbar: false">
+
+</pre>
+
+

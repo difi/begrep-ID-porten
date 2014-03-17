@@ -1,0 +1,42 @@
+---
+layout: default
+title: SAMLAssertionV1
+headtitle: ID-porten
+group: ID-Porten/complexType
+---
+
+- Identifikator := <a href="/Oppslagstjenesten/{{page.title}}">http://begrep.difi.no{{ page.url }}</a>
+- Term := {{page.title}}
+- Definisjon := Informasjon om en Person utlevert via ID-porten, standard profil
+- Datatype := complexType
+- Kilde := DIFI
+- Kommentar := Den informasjon som utleveres i ID-porten sin standard SAML2 profil ved Autentisering
+
+h4. Attributer
+
+|_. Term |_. Beskrivelse |_. Kardinalitet |
+| uid | "personidentifikator":/Felles/personidentifikator | 1 |
+| SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
+| AuthMethod | "Autentiseringsmetode":#AuthMethod | 1 |
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
+| AuthnContextClassRef| Autentiseringsnivå spesifisert i henhold til kodeverk for "SAMLAuthnRequest#AuthnContextClassRef":AuthnContextClassRef | 1 |
+
+h4. Kodeverk
+
+h5. AuthMethod
+
+|_. AuthMetod |_.	Beskrivelse |
+| Minid-PIN	| Bruker har logget seg på med PIN koder fra PIN kode ark. |
+| Minid-OTC	| Bruker har logget seg på med engangskode sendt på SMS |
+| Buypass	| Bruker har logget seg på med smartkort fra Buypass |
+| Commfides	| Bruker har logget seg på med USB-pen med e-ID fra Commfides |
+| BankID	| Bruker har logget seg på med BankID med kodebrikke |
+
+
+h4. Eksempel
+
+<pre class="brush: xml; toolbar: false">
+
+</pre>
+
+

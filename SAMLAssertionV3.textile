@@ -1,0 +1,48 @@
+---
+layout: default
+title: SAMLAssertionV3
+headtitle: ID-porten
+group: ID-Porten/complexType
+---
+
+- Identifikator := <a href="/Oppslagstjenesten/{{page.title}}">http://begrep.difi.no{{ page.url }}</a>
+- Term := {{page.title}}
+- Definisjon := Utvidet informasjon om en Person utlevert via ID-porten dersom Offentlig Virksomhet har spesifisert behov for dette
+- Datatype := complexType
+- Kilde := DIFI
+- Kommentar := Den informasjon som utleveres i ID-porten sin SAML2 profil ved Autentisering dersom Avsender har behov for informasjon fra kontakt og reservasjonsregisteret
+
+h4. Attributer
+
+|_. Term |_. Beskrivelse |_. Kardinalitet |
+| uid | "personidentifikator":/Felles/personidentifikator | 1|
+| SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
+| AuthMethod | "Autentiseringsmetode":SAMLAssertionV1#AuthMethod | 1 |
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
+| AuthnContextClassRef | Autentiseringsnivå spesifisert i henhold til kodeverk for "SAMLAuthnRequest#AuthnContextClassRef":AuthnContextClassRef | 1 |
+| "status":/Felles/status  | status | 0..1 |
+| "mobiltelefonnummer":/Felles/mobiltelefonnummer | "mobiltelefonnummer":/Felles/mobiltelefonnummer | 0..1 |
+| "epostadresse":/Felles/epostadresse | "epostadresse":/Felles/epostadresse | 0..1 |
+| "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | 0..1 |
+
+h4. Kodeverk
+
+h4. Kodeverk for status
+
+"status":/Felles/status kan ha følgende verdi:
+
+|_. Kodeverdi |_. Beskrivelse |
+| AKTIV | Person finnes i registeret |
+| IKKE_REGISTRERT | Person finnes ikke i registeret, enten ikke registrert eller slettet |
+
+Ved IKKE_REGISTRERT har ikke registeret informasjon om "mobiltelefonnummer":/Felles/mobiltelefonnummer eller "epostadresse":/Felles/epostadresse eller "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn , og vil ikke kunne levere ut disse elementene til Offentlig virksomhet.  
+
+
+
+h4. Eksempel
+
+<pre class="brush: xml; toolbar: false">
+
+</pre>
+
+
