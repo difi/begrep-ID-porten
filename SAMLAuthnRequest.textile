@@ -19,7 +19,7 @@ SAMLRequest=<req>&SigAlg=<alg>&Signature=<SIGNATUR>
 h4. Attributer
 
 |_. Term |_. Beskrivelse |_. Kardinalitet |
-| AuthnContextClassRef| Autentiseringsnivå spesifisert i henhold til kodeverk for "AuthnContextClassRef":#AuthnContextClassRef beskrevet under | 0..1 |
+| AuthnContextClassRef | Autentiseringsnivå spesifisert i henhold til kodeverk for "AuthnContextClassRef":#AuthnContextClassRef beskrevet under | 0..1 |
 | ForceAuth | Vil kreve at brukeren gjennomfører autentisering . | 0..1 |
 | locale | "spraak":/Felles/spraak, se under for hvilke språk som er støttet | 0..1 |
 | OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
