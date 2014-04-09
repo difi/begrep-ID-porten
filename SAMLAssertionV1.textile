@@ -15,7 +15,7 @@ group: ID-porten/complexType
 h4. Attributer
 
 |_. Term |_. Beskrivelse |_. Kardinalitet |
-| Uid | "personidentifikator":/Felles/personidentifikator | 1 |
+| uid | "personidentifikator":/Felles/personidentifikator | 1 |
 | SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
 | Culture | "språk":/Felles/spraak | 1 |
 | AuthMethod | "Autentiseringsmetode":#AuthMethod | 1 |
