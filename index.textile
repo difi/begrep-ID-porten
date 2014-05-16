@@ -8,7 +8,7 @@ ID-porten er et nav/tillitsanker for offentlig virksomheter. ID-porten knytter d
 
 h3. Integrasjonsguide:
 
-* Er tilgjengelig på "DIFI sin samarbeidsportal":http://samarbeid.difi.no
+* Integrasjonsguide er tilgjengelig på "DIFI sin samarbeidsportal":http://samarbeid.difi.no
 
 h3. Autentiseringsforespørsel
 
