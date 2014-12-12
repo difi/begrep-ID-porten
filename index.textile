@@ -18,6 +18,7 @@ h3. SAML2Assertion profiler
 
 ID-porten har følgende forskjellige profiler:
 
+table(table table-striped).
 |_. Profilnavn |_. Beskrivelse |
 | "SAMLAssertionV1":SAMLAssertionV1 | Standard profil |
 | "SAMLAssertionV2":SAMLAssertionV2 | FORELDET, kun tilgjengelig for å være bakoverkompatibel |
