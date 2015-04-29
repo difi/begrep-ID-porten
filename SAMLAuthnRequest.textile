@@ -5,12 +5,13 @@ headtitle: ID-porten
 group: ID-porten/complexType
 ---
 
-- Identifikator := <a href="/Oppslagstjenesten/{{page.title}}">http://begrep.difi.no{{ page.url }}</a>
+- Identifikator := "http://begrep.difi.no{{ page.url  | remove:".html" }}":{{page.title}}
 - Term := {{page.title}}
 - Definisjon := Forespørsel om autentisering
 - Datatype := complexType
 - Kilde := DIFI
 - Kommentar := Den informasjon som overføres til ID-porten for å forespørre en autentisering.
+
 I ID-Porten SAML2 profilen MÅ forespørselen signeres. Signaturen plasseres i Signatur forespørsel strengen beskrevet for denne bindingen, og ikke i selve XML meldingen. Slik:
 
 <pre class="brush: xml; toolbar: false">
@@ -47,8 +48,6 @@ Følgende språk er støttet i forespørselen:
 | se | Samisk |
 | en | Engelsk |
 
-
-
 h4. eksempel
 
 Eksempel forespørsel:
@@ -59,12 +58,6 @@ Eksempel forespørsel:
             urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
      </saml:AuthnContextClassRef>
 </samlp:RequestedAuthnContext>
-</pre>
-
-Eksempel på overføring av locale:
-
-<pre class="brush: xml; toolbar: false">
-https://idporten-inttest.difi.local/opensso/SSORedirect/metaAlias/norge.no/idp?SAMLRequest=<KRYPTERT SAML2 REQUEST> &SigAlg=<alg>&Signature=<SIGNATUR>&locale=nb
 </pre>
 
 Eksempel på bruk av OnBehalfOf:
@@ -79,4 +72,3 @@ Eksempel på bruk av OnBehalfOf:
     ...
 </samlp:AuthnRequest>
 </pre>
-
