@@ -71,6 +71,9 @@ h4. Eksempel
       <saml:Attribute Name="SecurityLevel">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
       </saml:Attribute>
+	  <saml:Attribute Name="postkasseleverandoerNavn">
+	     <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Digipost test operator</saml:AttributeValue>
+	  </saml:Attribute>
    </saml:AttributeStatement>
 
 
