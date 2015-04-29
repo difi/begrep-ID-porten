@@ -5,7 +5,7 @@ headtitle: ID-porten
 group: ID-porten/complexType
 ---
 
-- Identifikator := <a href="/Oppslagstjenesten/{{page.title}}">http://begrep.difi.no{{ page.url }}</a>
+- Identifikator := "http://begrep.difi.no{{ page.url  | remove:".html" }}":{{page.title}}
 - Term := {{page.title}}
 - Definisjon := Informasjon om en Person utlevert via ID-porten dersom Offentlig Virksomhet har tatt i bruk første versjon av kontaktregisteret
 - Datatype := "SAML_2.0_Assertion":http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
