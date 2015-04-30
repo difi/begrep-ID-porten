@@ -24,7 +24,7 @@ Følgende 3 grunn-kombinasjoner er mulige:
 | AuthMethod | eIdentifier | uid | Beskrivelse |
 | STORK | NC/NC/xxxxxx... | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
 | STORK | NC/NC/xxxxxx... |"personidentifikator":/Felles/personidentifikator |  Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
-| "En av disse":SAMLAssertionV1#AuthMethod| "personidentifikator":/Felles/personidentifikator | <tomt> | Personen har autentisert seg med norsk eID. |
+| "En av disse":SAMLAssertionV1#AuthMethod| <tomt> | "personidentifikator":/Felles/personidentifikator | Personen har autentisert seg med norsk eID. |
 
 For alle europeiske eID vil ID-porten forsøke å framskaffe et eventuelt norsk d-nummer/fødselsnummer fra Det Sentrale Folkeregister (DSF). Hvis et d-nummer ikke ble funnet, eller ved integrasjonsproblem mot DSF, vil ID-porten likevel fullføre autentiseringen. Dette betyr at fravær av verdi i feltet *uid* ikke entydig garanterer at personen ikke har fått tildelt d-nummer.
 
