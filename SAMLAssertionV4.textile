@@ -1,0 +1,134 @@
+---
+layout: default
+title: SAMLAssertionV4
+headtitle: ID-porten
+group: ID-porten/complexType
+---
+
+- Identifikator := "http://begrep.difi.no{{ page.url  | remove:".html" }}":{{page.title}}
+- Term := {{page.title}}
+- Definisjon := SAML profil med støtte for både norske eID og europeiske eID autentisert vha. STORK/eIDAS-infrastrukturen
+- Datatype := "SAML_2.0_Assertion":http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
+- Kilde := DIFI
+- Kommentar := Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det, og som utvikler støtte for innlogging av brukere med europeiske eID.
+
+
+h3. Attributter
+
+h4. Attributt-kombinasjoner
+
+Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attributter kunne variere alt etter om det er norsk eller europeisk eID som vart nytta til innlogging. For europeiske eID kan attributtane i tillegg variere mellom land. Viss attributten "AuthMethod":#AuthMethod har verdi STORK, tyder dette at autentisering er føreteke med ein europeisk eID, og attributten *eIdentifier* er då unik identifikator. 
+
+Følgende 3 grunn-kombinasjoner er mulige:
+
+| AuthMethod | eIdentifier | uid | Beskrivelse |
+| STORK | NC/NC/xxxxxx... | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
+| STORK | NC/NC/xxxxxx... |"personidentifikator":/Felles/personidentifikator |  Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
+| "En av disse":SAMLAssertionV1#AuthMethod| "personidentifikator":/Felles/personidentifikator | <tomt> | Personen har autentisert seg med norsk eID. |
+
+For alle europeiske eID vil ID-porten forsøke å framskaffe et eventuelt norsk d-nummer/fødselsnummer fra Det Sentrale Folkeregister (DSF). Hvis et d-nummer ikke ble funnet, eller ved integrasjonsproblem mot DSF, vil ID-porten likevel fullføre autentiseringen. Dette betyr at fravær av verdi i feltet *uid* ikke entydig garanterer at personen ikke har fått tildelt d-nummer.
+
+h4. Attributter 
+
+Denne SAML-profilen inneholder alle attributter fra "SAMLAssertionV3":SAMLAssertionV3 :
+
+|_. Term |_. Beskrivelse |_. Kardinalitet |
+| uid | "personidentifikator":/Felles/personidentifikator . Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 1 |
+| SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
+| Culture | "språk":/Felles/spraak | 1 |
+| AuthMethod | "Autentiseringsmetode":SAMLAssertionV1#AuthMethod | 1 |
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
+| AuthnContextClassRef | Autentiseringsnivå spesifisert i henhold til kodeverk for "AuthnContextClassRef":SAMLAuthnRequest#AuthnContextClassRef | 1 |
+| "status":/Felles/status  | Kodeverk for "status":#status | 0..1 |
+| "mobiltelefonnummer":/Felles/mobiltelefonnummer | "mobiltelefonnummer":/Felles/mobiltelefonnummer | 0..1 |
+| "epostadresse":/Felles/epostadresse | "epostadresse":/Felles/epostadresse | 0..1 |
+| "reservasjon":/Felles/reservasjon | "reservasjon":/Felles/reservasjon | 0..1 |
+| "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | 0..1 |
+
+I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, STORK/eIDAS (se nærmere definisjoner i "STORK rapport  D5.7.3 her":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 ):
+
+|_.Field |_.Type |_.Values and comment |_. Kardinalitet |
+|eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
+|givenName |String ||0..1 |
+|surname |String |inheritedFamilyName / adoptedFamilyName |0..1 |
+|inheritedFamilyName |String ||0..1 |
+|adoptedFamilyName |String ||0..1 |
+|gender |String(1) |F (Female) / M (Male) |0..1 |
+|nationalityCode |String(2) |ISO 3166-1 alpha-2 |0..1 |
+|maritalStatus |String(1) |S (Single) / M (Married) / P (Separated) D (Divorced) / W (Widowed) |0..1 |
+|dateOfBirth |Date(basic format of ISO 8601) |YYYYMMDD / YYYYMM / YYYY |0..1 |
+|countryCodeOfBirth |String(4) |ISO 3166-3. Please note that this code is equal to ISO3166-1 alpha-2 in the majority of countries, but includes 4 letter abbreviations for disappeared countries. E.g. DDDE for the DDR or YGCS for Yugoslavia. |0..1 |
+|age |Number |In years (0..130) |0..1 |
+|isAgeOver |Boolean |Logically this is Boolean, in technical design another domain may be chosen |0..1 |
+|textResidenceAddress |Text ||0..1 |
+|canonicalResidenceAddress |XML ||0..1 |
+|residencePermit |String ||0..1 |
+|eMail |String |RFC 822 |0..1 |
+|title |Text ||0..1 |
+|pseudonym |String ||0..1 |
+|signedDoc |||0..1 |
+|citizenQAAlevel |Number |[1,2,3,4] |0..1 |
+|fiscalNumber ||String |0..1 |
+
+h3. Kodeverk
+
+h4. AuthMethod
+
+I tillegg til "basisverdiene for norske eID":SAMLAssertionV1#AuthMethod kan AuthMethod ogso ha verdien: 
+
+|_. Kodeverdi |_. Beskrivelse |
+|STORK | Autentisering utført med europeisk eID |
+
+h4. status
+
+"status":/Felles/status gjelder personens status i Kontakt- og Reservasjonsregisteret, og kan ha følgende verdi:
+
+|_. Kodeverdi |_. Beskrivelse |
+| AKTIV | Person finnes i Kontakt- og Reservasjonsregisteret |
+| IKKE_REGISTRERT | Person finnes ikke i Kontakt- og Reservasjonsregisteret, enten ikke registrert eller slettet |
+| SYSTEMFEIL	| ID-porten har ikke tilgang til informasjon fra Kontakt- og Reservasjonsregisteret , f.eks. ved feil i integrasjon mot registrert. |
+
+Ved IKKE_REGISTRERT har ikke registeret informasjon om "mobiltelefonnummer":/Felles/mobiltelefonnummer eller "epostadresse":/Felles/epostadresse eller "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn , og vil ikke kunne levere ut disse elementene til Offentlig virksomhet.  
+
+Ved autnetisering med europeisk eID, er det frivillig for personer som har fått tildelt norsk D-nummer/fødselsnummer å oppgi kontaktopplysninger til Kontakt- og Reservasjonsregisteret.  Personer som ikke har fått tidlet norsk fødselsnummer, har ikke mulighet til å oppgi kontaktopplysninger.
+
+h4. Eksempel
+
+MÅ OPPDATERAST! 
+
+<pre class="brush: xml; toolbar: false">
+
+   <saml:AttributeStatement>
+      <saml:Attribute Name="uid">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">03015561903</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="Culture">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">nb</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="epostadresse">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">03015561903-test@minid.norge.no</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="mobiltelefonnummer">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">03015561903</saml:AttributeValue>
+      </saml:Attribute>	  
+      <saml:Attribute Name="status">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">AKTIV</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="reservasjon">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">NEI</saml:AttributeValue>
+      </saml:Attribute>	  
+      <saml:Attribute Name="AuthMethod">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Minid-PIN</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="SecurityLevel">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
+      </saml:Attribute>
+	  <saml:Attribute Name="postkasseleverandoerNavn">
+	     <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Digipost test operator</saml:AttributeValue>
+	  </saml:Attribute>
+   </saml:AttributeStatement>
+
+
+</pre>
+
+
