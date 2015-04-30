@@ -48,27 +48,27 @@ Denne SAML-profilen inneholder alle attributter fra "SAMLAssertionV3":SAMLAssert
 I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, STORK/eIDAS (se nærmere definisjoner i "STORK rapport  D5.7.3 her":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 ):
 
 |_.Field |_.Type |_.Values and comment |_. Kardinalitet |
-|eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
-|givenName |String ||0..1 |
-|surname |String |inheritedFamilyName / adoptedFamilyName |0..1 |
-|inheritedFamilyName |String ||0..1 |
-|adoptedFamilyName |String ||0..1 |
-|gender |String(1) |F (Female) / M (Male) |0..1 |
-|nationalityCode |String(2) |ISO 3166-1 alpha-2 |0..1 |
-|maritalStatus |String(1) |S (Single) / M (Married) / P (Separated) D (Divorced) / W (Widowed) |0..1 |
-|dateOfBirth |Date(basic format of ISO 8601) |YYYYMMDD / YYYYMM / YYYY |0..1 |
-|countryCodeOfBirth |String(4) |ISO 3166-3. Please note that this code is equal to ISO3166-1 alpha-2 in the majority of countries, but includes 4 letter abbreviations for disappeared countries. E.g. DDDE for the DDR or YGCS for Yugoslavia. |0..1 |
-|age |Number |In years (0..130) |0..1 |
-|isAgeOver |Boolean |Logically this is Boolean, in technical design another domain may be chosen |0..1 |
-|textResidenceAddress |Text ||0..1 |
-|canonicalResidenceAddress |XML ||0..1 |
-|residencePermit |String ||0..1 |
-|eMail |String |RFC 822 |0..1 |
-|title |Text ||0..1 |
-|pseudonym |String ||0..1 |
-|signedDoc |||0..1 |
-|citizenQAAlevel |Number |[1,2,3,4] |0..1 |
-|fiscalNumber ||String |0..1 |
+|stork-eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
+|stork-givenName |String ||0..1 |
+|stork-surname |String |inheritedFamilyName / adoptedFamilyName |0..1 |
+|stork-inheritedFamilyName |String ||0..1 |
+|stork-adoptedFamilyName |String ||0..1 |
+|stork-gender |String(1) |F (Female) / M (Male) |0..1 |
+|stork-nationalityCode |String(2) |ISO 3166-1 alpha-2 |0..1 |
+|stork-maritalStatus |String(1) |S (Single) / M (Married) / P (Separated) D (Divorced) / W (Widowed) |0..1 |
+|stork-dateOfBirth |Date(basic format of ISO 8601) |YYYYMMDD / YYYYMM / YYYY |0..1 |
+|stork-countryCodeOfBirth |String(4) |ISO 3166-3. Please note that this code is equal to ISO3166-1 alpha-2 in the majority of countries, but includes 4 letter abbreviations for disappeared countries. E.g. DDDE for the DDR or YGCS for Yugoslavia. |0..1 |
+|stork-age |Number |In years (0..130) |0..1 |
+|stork-isAgeOver |Boolean |Logically this is Boolean, in technical design another domain may be chosen |0..1 |
+|stork-textResidenceAddress |Text ||0..1 |
+|stork-canonicalResidenceAddress |XML ||0..1 |
+|stork-residencePermit |String ||0..1 |
+|stork-eMail |String |RFC 822 |0..1 |
+|stork-title |Text ||0..1 |
+|stork-pseudonym |String ||0..1 |
+|stork-signedDoc |||0..1 |
+|stork-citizenQAAlevel |Number |[1,2,3,4] |0..1 |
+|stork-fiscalNumber ||String |0..1 |
 
 h3. Kodeverk
 
