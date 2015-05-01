@@ -70,6 +70,8 @@ I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, STORK/e
 |stork-citizenQAAlevel |Number |[1,2,3,4] |0..1 |
 |stork-fiscalNumber ||String |0..1 |
 
+I tillegg kan vi ikke se bort fra at noen land sender med ekstra attributter utover de som finst i STORK-standarden.  Disse vil bli prefixet med landskode, og så videreformidlet av ID-porten.
+
 h3. Kodeverk
 
 h4. AuthMethod
