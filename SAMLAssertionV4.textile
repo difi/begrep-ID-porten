@@ -45,7 +45,7 @@ Denne SAML-profilen inneholder alle attributter fra "SAMLAssertionV3":SAMLAssert
 | "reservasjon":/Felles/reservasjon | "reservasjon":/Felles/reservasjon | 0..1 |
 | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | 0..1 |
 
-I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, STORK/eIDAS (se nærmere definisjoner i "STORK rapport  D5.7.3 her":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 ):
+I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, STORK/eIDAS (se nærmere definisjoner i "STORK rapport D5.7.3 Functional Design for PEPS, MW models and interoperability her":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 ):
 
 |_.Field |_.Type |_.Values and comment |_. Kardinalitet |
 |stork-eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
@@ -94,7 +94,42 @@ Ved autnetisering med europeisk eID, er det frivillig for personer som har fått
 
 h4. Eksempel
 
-MÅ OPPDATERAST! 
+
+Eksempel på europeisk eID utan D-nummer:
+
+<pre class="brush: xml; toolbar: false">
+
+   <saml:AttributeStatement>
+      <saml:Attribute Name="uid">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"></saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="Culture">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="AuthMethod">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">STORK</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="SecurityLevel">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
+      </saml:Attribute>
+	  
+      <saml:Attribute Name="stork-eIdentifier">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">SE/NO/74629XY34+D/S</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="stork-givenName">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nomen</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="stork-surname">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nescio</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="stork-dateOfBirth">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">19650821</saml:AttributeValue>
+      </saml:Attribute>
+	  
+   </saml:AttributeStatement>
+</pre>
+
+Eksempel på innlogging med norsk eID:
 
 <pre class="brush: xml; toolbar: false">
 
@@ -126,9 +161,70 @@ MÅ OPPDATERAST!
 	  <saml:Attribute Name="postkasseleverandoerNavn">
 	     <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Digipost test operator</saml:AttributeValue>
 	  </saml:Attribute>
+	  
+      <saml:Attribute Name="stork-eIdentifier">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"></saml:AttributeValue>
+      </saml:Attribute>
+
    </saml:AttributeStatement>
 
 
+</pre>
+
+Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopplysninger til Kontakt- og Reservasjonsregistert:
+
+<pre class="brush: xml; toolbar: false">
+
+   <saml:AttributeStatement>
+      <saml:Attribute Name="uid">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"></saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="Culture">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="AuthMethod">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">STORK</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="SecurityLevel">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
+      </saml:Attribute>
+
+      <saml:Attribute Name="epostadresse">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">03015561903-test@minid.norge.no</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="mobiltelefonnummer">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">+461234567890</saml:AttributeValue>
+      </saml:Attribute>	  
+      <saml:Attribute Name="status">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">AKTIV</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="reservasjon">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">NEI</saml:AttributeValue>
+      </saml:Attribute>	  
+	  
+      <saml:Attribute Name="stork-eIdentifier">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">SE/NO/74629XY34+D/S</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="stork-givenName">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nomen</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="stork-surname">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nescio</saml:AttributeValue>
+      </saml:Attribute>
+      <saml:Attribute Name="stork-dateOfBirth">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">19650821</saml:AttributeValue>
+      </saml:Attribute>
+
+      <saml:Attribute Name="stork-eMail">
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">denneKanVereUlikKRRtest@minid.norge.no</saml:AttributeValue>
+      </saml:Attribute>
+
+	  
+   </saml:AttributeStatement>
+</pre>
+   
+   
+   
 </pre>
 
 
