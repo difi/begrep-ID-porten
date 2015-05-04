@@ -7,7 +7,7 @@ group: ID-porten/complexType
 
 - Identifikator := "http://begrep.difi.no{{ page.url  | remove:".html" }}":{{page.title}}
 - Term := {{page.title}}
-- Definisjon := SAML profil med støtte for både norske eID og europeiske eID autentisert vha. STORK/eIDAS-infrastrukturen
+- Definisjon := SAML profil med støtte for både norske eID og europeiske eID autentisert via eIDAS-infrastrukturen
 - Datatype := "SAML_2.0_Assertion":http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
 - Kilde := DIFI
 - Kommentar := Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det, og som utvikler støtte for innlogging av brukere med europeiske eID.
@@ -17,13 +17,13 @@ h3. Attributter
 
 h4. Attributt-kombinasjoner
 
-Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attributter kunne variere alt etter om det er norsk eller europeisk eID som vart nytta til innlogging. For europeiske eID kan attributtane i tillegg variere mellom land. Viss attributten "AuthMethod":#AuthMethod har verdi STORK, tyder dette at autentisering er føreteke med ein europeisk eID, og attributten *eIdentifier* er då unik identifikator. 
+Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attributter kunne variere alt etter om det er norsk eller europeisk eID som vart nytta til innlogging. For europeiske eID kan attributtane i tillegg variere mellom land. Viss attributten "AuthMethod":#AuthMethod har verdi eIDAS, tyder dette at autentisering er føreteke med ein europeisk eID, og attributten *eIdentifier* er då unik identifikator. 
 
 Følgende 3 grunn-kombinasjoner er mulige:
 
 | AuthMethod | eIdentifier | uid | Beskrivelse |
-| STORK | NC/NC/xxxxxx... | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
-| STORK | NC/NC/xxxxxx... |"personidentifikator":/Felles/personidentifikator |  Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
+| eIDAS | NC/NC/xxxxxx... | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
+| eIDAS | NC/NC/xxxxxx... |"personidentifikator":/Felles/personidentifikator |  Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
 | "En av disse":SAMLAssertionV1#AuthMethod| <tomt> | "personidentifikator":/Felles/personidentifikator | Personen har autentisert seg med norsk eID. |
 
 For alle europeiske eID vil ID-porten forsøke å framskaffe et eventuelt norsk d-nummer/fødselsnummer fra Det Sentrale Folkeregister (DSF). Hvis et d-nummer ikke ble funnet, eller ved integrasjonsproblem mot DSF, vil ID-porten likevel fullføre autentiseringen. Dette betyr at fravær av verdi i feltet *uid* ikke entydig garanterer at personen ikke har fått tildelt d-nummer.
@@ -45,32 +45,32 @@ Denne SAML-profilen inneholder alle attributter fra "SAMLAssertionV3":SAMLAssert
 | "reservasjon":/Felles/reservasjon | "reservasjon":/Felles/reservasjon | 0..1 |
 | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | 0..1 |
 
-I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, STORK/eIDAS (se nærmere definisjoner i "STORK rapport D5.7.3 Functional Design for PEPS, MW models and interoperability her":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 ):
+I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS / STORK  (se nærmere definisjoner i rapport "'D5.7.3 Functional Design for PEPS, MW models and interoperability'":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 fra STORK-prosjektet):
 
 |_.Field |_.Type |_.Values and comment |_. Kardinalitet |
-|stork-eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
-|stork-givenName |String ||0..1 |
-|stork-surname |String |inheritedFamilyName / adoptedFamilyName |0..1 |
-|stork-inheritedFamilyName |String ||0..1 |
-|stork-adoptedFamilyName |String ||0..1 |
-|stork-gender |String(1) |F (Female) / M (Male) |0..1 |
-|stork-nationalityCode |String(2) |ISO 3166-1 alpha-2 |0..1 |
-|stork-maritalStatus |String(1) |S (Single) / M (Married) / P (Separated) D (Divorced) / W (Widowed) |0..1 |
-|stork-dateOfBirth |Date(basic format of ISO 8601) |YYYYMMDD / YYYYMM / YYYY |0..1 |
-|stork-countryCodeOfBirth |String(4) |ISO 3166-3. Please note that this code is equal to ISO3166-1 alpha-2 in the majority of countries, but includes 4 letter abbreviations for disappeared countries. E.g. DDDE for the DDR or YGCS for Yugoslavia. |0..1 |
-|stork-age |Number |In years (0..130) |0..1 |
-|stork-isAgeOver |Boolean |Logically this is Boolean, in technical design another domain may be chosen |0..1 |
-|stork-textResidenceAddress |Text ||0..1 |
-|stork-canonicalResidenceAddress |XML ||0..1 |
-|stork-residencePermit |String ||0..1 |
-|stork-eMail |String |RFC 822 |0..1 |
-|stork-title |Text ||0..1 |
-|stork-pseudonym |String ||0..1 |
-|stork-signedDoc |||0..1 |
-|stork-citizenQAAlevel |Number |[1,2,3,4] |0..1 |
-|stork-fiscalNumber ||String |0..1 |
+|eidas-eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
+|eidas-givenName |String ||0..1 |
+|eidas-surname |String |inheritedFamilyName / adoptedFamilyName |0..1 |
+|eidas-inheritedFamilyName |String ||0..1 |
+|eidas-adoptedFamilyName |String ||0..1 |
+|eidas-gender |String(1) |F (Female) / M (Male) |0..1 |
+|eidas-nationalityCode |String(2) |ISO 3166-1 alpha-2 |0..1 |
+|eidas-maritalStatus |String(1) |S (Single) / M (Married) / P (Separated) D (Divorced) / W (Widowed) |0..1 |
+|eidas-dateOfBirth |Date(basic format of ISO 8601) |YYYYMMDD / YYYYMM / YYYY |0..1 |
+|eidas-countryCodeOfBirth |String(4) |ISO 3166-3. Please note that this code is equal to ISO3166-1 alpha-2 in the majority of countries, but includes 4 letter abbreviations for disappeared countries. E.g. DDDE for the DDR or YGCS for Yugoslavia. |0..1 |
+|eidas-age |Number |In years (0..130) |0..1 |
+|eidas-isAgeOver |Boolean |Logically this is Boolean, in technical design another domain may be chosen |0..1 |
+|eidas-textResidenceAddress |Text ||0..1 |
+|eidas-canonicalResidenceAddress |XML ||0..1 |
+|eidas-residencePermit |String ||0..1 |
+|eidas-eMail |String |RFC 822 |0..1 |
+|eidas-title |Text ||0..1 |
+|eidas-pseudonym |String ||0..1 |
+|eidas-signedDoc |||0..1 |
+|eidas-citizenQAAlevel |Number |[1,2,3,4] |0..1 |
+|eidas-fiscalNumber ||String |0..1 |
 
-I tillegg kan vi ikke se bort fra at noen land sender med ekstra attributter utover de som finst i STORK-standarden.  Disse vil bli prefixet med landskode, og så videreformidlet av ID-porten.
+I tillegg kan vi ikke se bort fra at noen land sender med ekstra attributter utover de som finst i eIDAS-standarden.  Disse vil bli prefixet med "eidas-landskode", og så videreformidlet av ID-porten.
 
 h3. Kodeverk
 
@@ -79,7 +79,7 @@ h4. AuthMethod
 I tillegg til "basisverdiene for norske eID":SAMLAssertionV1#AuthMethod kan AuthMethod ogso ha verdien: 
 
 |_. Kodeverdi |_. Beskrivelse |
-|STORK | Autentisering utført med europeisk eID |
+|eIDAS | Autentisering utført med europeisk eID |
 
 h4. status
 
@@ -109,22 +109,22 @@ Eksempel på europeisk eID utan D-nummer:
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="AuthMethod">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">STORK</saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">eidas</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="SecurityLevel">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
       </saml:Attribute>
 	  
-      <saml:Attribute Name="stork-eIdentifier">
+      <saml:Attribute Name="eidas-eIdentifier">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">SE/NO/74629XY34+D/S</saml:AttributeValue>
       </saml:Attribute>
-      <saml:Attribute Name="stork-givenName">
+      <saml:Attribute Name="eidas-givenName">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nomen</saml:AttributeValue>
       </saml:Attribute>
-      <saml:Attribute Name="stork-surname">
+      <saml:Attribute Name="eidas-surname">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nescio</saml:AttributeValue>
       </saml:Attribute>
-      <saml:Attribute Name="stork-dateOfBirth">
+      <saml:Attribute Name="eidas-dateOfBirth">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">19650821</saml:AttributeValue>
       </saml:Attribute>
 	  
@@ -164,7 +164,7 @@ Eksempel på innlogging med norsk eID:
 	     <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Digipost test operator</saml:AttributeValue>
 	  </saml:Attribute>
 	  
-      <saml:Attribute Name="stork-eIdentifier">
+      <saml:Attribute Name="eidas-eIdentifier">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"></saml:AttributeValue>
       </saml:Attribute>
 
@@ -185,7 +185,7 @@ Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopply
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="AuthMethod">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">STORK</saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">eidas</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="SecurityLevel">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
@@ -204,20 +204,20 @@ Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopply
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">NEI</saml:AttributeValue>
       </saml:Attribute>	  
 	  
-      <saml:Attribute Name="stork-eIdentifier">
+      <saml:Attribute Name="eidas-eIdentifier">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">SE/NO/74629XY34+D/S</saml:AttributeValue>
       </saml:Attribute>
-      <saml:Attribute Name="stork-givenName">
+      <saml:Attribute Name="eidas-givenName">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nomen</saml:AttributeValue>
       </saml:Attribute>
-      <saml:Attribute Name="stork-surname">
+      <saml:Attribute Name="eidas-surname">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Nescio</saml:AttributeValue>
       </saml:Attribute>
-      <saml:Attribute Name="stork-dateOfBirth">
+      <saml:Attribute Name="eidas-dateOfBirth">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">19650821</saml:AttributeValue>
       </saml:Attribute>
 
-      <saml:Attribute Name="stork-eMail">
+      <saml:Attribute Name="eidas-eMail">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">denneKanVereUlikKRRtest@minid.norge.no</saml:AttributeValue>
       </saml:Attribute>
 
