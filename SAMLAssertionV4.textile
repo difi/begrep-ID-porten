@@ -179,7 +179,7 @@ Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopply
 
    <saml:AttributeStatement>
       <saml:Attribute Name="uid">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"></saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">45678901234</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="Culture">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
@@ -218,7 +218,7 @@ Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopply
       </saml:Attribute>
 
       <saml:Attribute Name="eidas-eMail">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">denneKanVereUlikKRRtest@minid.norge.no</saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">denneKanVereUlikKRR@ein.anna.domene</saml:AttributeValue>
       </saml:Attribute>
 
 	  
