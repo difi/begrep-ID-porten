@@ -73,6 +73,7 @@ I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS /
 Vær oppmerksom på at noen land kan sende med ekstra attributter utover de som finst i eIDAS-standarden.  Disse vil bli prefixet med "eidas-landskode", og så videreformidlet av ID-porten.
 
 I tillegg utleverer vi et statusflagg for integrasjonen mot DSF:
+
 |_. Term |_. Beskrivelse |_. Kardinalitet |
 | "status-dsf":/Felles/status-dsf  | Kodeverk for "status-dsf":#status-dsf | 0..1 |
 
