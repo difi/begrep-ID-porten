@@ -10,7 +10,7 @@ group: ID-porten/complexType
 - Definisjon := SAML profil med støtte for både norske eID og europeiske eID autentisert via eIDAS-infrastrukturen
 - Datatype := "SAML_2.0_Assertion":http://en.wikipedia.org/wiki/SAML_2.0#SAML_2.0_Assertions
 - Kilde := DIFI
-- Kommentar := Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det, og som utvikler støtte for innlogging av brukere med europeiske eID.
+- Kommentar := Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det, og som utvikler støtte for innlogging av brukere med europeiske eID. Siden eIDAS-spesifikasjonene per 2015 er under utarbeidelse, kan det bli endringer i profilen i fremtiden.
 
 
 h3. Attributter
@@ -33,7 +33,7 @@ h4. Attributter
 Denne SAML-profilen inneholder alle attributter fra "SAMLAssertionV3":SAMLAssertionV3 :
 
 |_. Term |_. Beskrivelse |_. Kardinalitet |
-| uid | "personidentifikator":/Felles/personidentifikator . Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 1 |
+| uid | "personidentifikator":/Felles/personidentifikator . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 1 |
 | SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
 | Culture | "språk":/Felles/spraak | 1 |
 | AuthMethod | "Autentiseringsmetode":SAMLAssertionV1#AuthMethod | 1 |
@@ -70,7 +70,13 @@ I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS /
 |eidas-citizenQAAlevel |Number |[1,2,3,4] |0..1 |
 |eidas-fiscalNumber ||String |0..1 |
 
-I tillegg kan vi ikke se bort fra at noen land sender med ekstra attributter utover de som finst i eIDAS-standarden.  Disse vil bli prefixet med "eidas-landskode", og så videreformidlet av ID-porten.
+Vær oppmerksom på at noen land kan sende med ekstra attributter utover de som finst i eIDAS-standarden.  Disse vil bli prefixet med "eidas-landskode", og så videreformidlet av ID-porten.
+
+I tillegg utleverer vi et statusflagg for integrasjonen mot DSF:
+|_. Term |_. Beskrivelse |_. Kardinalitet |
+| "status-dsf":/Felles/status-dsf  | Kodeverk for "status-dsf":#status-dsf | 0..1 |
+
+
 
 h3. Kodeverk
 
@@ -92,7 +98,17 @@ h4. status
 
 Ved IKKE_REGISTRERT har ikke registeret informasjon om "mobiltelefonnummer":/Felles/mobiltelefonnummer eller "epostadresse":/Felles/epostadresse eller "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn , og vil ikke kunne levere ut disse elementene til Offentlig virksomhet.  
 
-Ved autnetisering med europeisk eID, er det frivillig for personer som har fått tildelt norsk D-nummer/fødselsnummer å oppgi kontaktopplysninger til Kontakt- og Reservasjonsregisteret.  Personer som ikke har fått tidlet norsk fødselsnummer, har ikke mulighet til å oppgi kontaktopplysninger.
+Ved autentisering med europeisk eID, er det frivillig for personer som har fått tildelt norsk D-nummer/fødselsnummer å oppgi kontaktopplysninger til Kontakt- og Reservasjonsregisteret.  Personer som ikke har fått tidlet norsk fødselsnummer, har ikke mulighet til å oppgi kontaktopplysninger.
+
+h4. status-dsf
+
+"status-dsf":/Felles/status-dsf gjelder ID-portens integrasjonsstatus mot Det Sentrale Folkeregisteret (DSF).
+
+|_. Kodeverdi |_. Beskrivelse |
+| OK | ID-porten har som del av innlogging gjennomført en spørring mot DSF uten tekniske feil|
+| SYSTEMFEIL	| ID-porten har ikke tilgang til informasjon fra Det Sentrale Folkeregisteret , f.eks. ved feil i integrasjon mot registrert. |
+| DUPLIKAT | Oppslag mot DSF har resultert i flere mulige treff, og ID-porten kan ikke gjøre en garantert kobling mellom utenlandsk eID og D-nummer i DSF |
+
 
 h4. Eksempel
 
@@ -179,7 +195,7 @@ Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopply
 
    <saml:AttributeStatement>
       <saml:Attribute Name="uid">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string"></saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">45678901234</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="Culture">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
@@ -218,7 +234,7 @@ Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopply
       </saml:Attribute>
 
       <saml:Attribute Name="eidas-eMail">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">denneKanVereUlikKRRtest@minid.norge.no</saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">denneKanVereUlikKRR@ein.anna.domene</saml:AttributeValue>
       </saml:Attribute>
 
 	  
