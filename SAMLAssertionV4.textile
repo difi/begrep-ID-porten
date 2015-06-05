@@ -103,6 +103,7 @@ Ved autentisering med europeisk eID, er det frivillig for personer som har fått
 h4. status-dsf
 
 "status-dsf":/Felles/status-dsf gjelder ID-portens integrasjonsstatus mot Det Sentrale Folkeregisteret (DSF).
+
 |_. Kodeverdi |_. Beskrivelse |
 | OK | ID-porten har som del av innlogging gjennomført en spørring mot DSF uten tekniske feil|
 | SYSTEMFEIL	| ID-porten har ikke tilgang til informasjon fra Det Sentrale Folkeregisteret , f.eks. ved feil i integrasjon mot registrert. |
