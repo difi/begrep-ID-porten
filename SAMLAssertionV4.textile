@@ -108,7 +108,7 @@ h4. status-dsf
 |_. Kodeverdi |_. Beskrivelse |
 | OK | ID-porten har som del av innlogging gjennomført en spørring mot DSF uten tekniske feil|
 | SYSTEMFEIL	| ID-porten har ikke tilgang til informasjon fra Det Sentrale Folkeregisteret , f.eks. ved feil i integrasjon mot registrert. |
-| DUPLIKAT | Oppslag mot DSF har resultert i flere mulige treff, og ID-porten kan ikke gjøre en garantert kobling mellom utenlandsk eID og D-nummer i DSF |
+| FLERETREFF | Oppslag mot DSF har resultert i flere mulige treff, og ID-porten kan ikke gjøre en garantert kobling mellom utenlandsk eID og D-nummer i DSF |
 
 
 h4. Eksempel
