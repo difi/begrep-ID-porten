@@ -99,7 +99,11 @@ h4. status
 
 Ved IKKE_REGISTRERT har ikke registeret informasjon om "mobiltelefonnummer":/Felles/mobiltelefonnummer eller "epostadresse":/Felles/epostadresse eller "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn , og vil ikke kunne levere ut disse elementene til Offentlig virksomhet.  
 
-Ved autentisering med europeisk eID, er det frivillig for personer som har fått tildelt norsk D-nummer/fødselsnummer å oppgi kontaktopplysninger til Kontakt- og Reservasjonsregisteret.  Personer som ikke har fått tidlet norsk fødselsnummer, har ikke mulighet til å oppgi kontaktopplysninger.
+Ved autentisering med europeisk eID, er det frivillig for personer som har fått tildelt norsk D-nummer/fødselsnummer å oppgi kontaktopplysninger til Kontakt- og Reservasjonsregisteret.  Personer som ikke har fått tildet norsk D-nummer/fødselsnummer, har ikke mulighet til å oppgi kontaktopplysninger.  
+
+For utenlandske innbyggere, blir Kontakt- og reservasjonsregisteret kun sjekket dersom det er oppnådd en entydig kobling mot norsk D-nummer/fødselsnummer. Dette kan skje ved manglende kobling eller ved feilsituasjoner mot DSF. Informasjon fra Kontakt-og reservasjonsregisteret vil da mangle.
+
+
 
 h4. status-dsf
 
