@@ -32,6 +32,7 @@ h5. AuthMethod
 | Buypass	| Bruker har logget seg på med smartkort fra Buypass |
 | Commfides	| Bruker har logget seg på med USB-pen med e-ID fra Commfides |
 | BankID	| Bruker har logget seg på med BankID med kodebrikke |
+| BankID Mobil | Bruker har logget seg på med BankID på mobil |
 
 
 h4. Eksempel
