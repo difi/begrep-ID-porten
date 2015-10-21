@@ -17,13 +17,13 @@ h3. Attributter
 
 h4. Attributt-kombinasjoner
 
-Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attributter kunne variere alt etter om det er norsk eller europeisk eID som vart nytta til innlogging. For europeiske eID kan attributtane i tillegg variere mellom land. Viss attributten "AuthMethod":#AuthMethod har verdi eIDAS, tyder dette at autentisering er føreteke med ein europeisk eID, og attributten *eIdentifier* er då unik identifikator. 
+Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attributter kunne variere alt etter om det er norsk eller europeisk eID som vart nytta til innlogging. For europeiske eID kan attributtane i tillegg variere mellom land. Viss attributten "AuthMethod":#AuthMethod har verdi Eidas, tyder dette at autentisering er føreteke med ein europeisk eID, og attributten *eIdentifier* er då unik identifikator. 
 
 Følgende 3 grunn-kombinasjoner er mulige:
 
 | AuthMethod | eIdentifier | uid | Beskrivelse |
-| eIDAS | NC/NC/xxxxxx... | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
-| eIDAS | NC/NC/xxxxxx... |"personidentifikator":/Felles/personidentifikator |  Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
+| Eidas | NC/NC/xxxxxx... | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
+| Eidas | NC/NC/xxxxxx... |"personidentifikator":/Felles/personidentifikator |  Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
 | "En av disse":SAMLAssertionV1#AuthMethod| <tomt> | "personidentifikator":/Felles/personidentifikator | Personen har autentisert seg med norsk eID. |
 
 For alle europeiske eID vil ID-porten forsøke å framskaffe et eventuelt norsk d-nummer/fødselsnummer fra Det Sentrale Folkeregister (DSF). Hvis et d-nummer ikke ble funnet, eller ved integrasjonsproblem mot DSF, vil ID-porten likevel fullføre autentiseringen. Dette betyr at fravær av verdi i feltet *uid* ikke entydig garanterer at personen ikke har fått tildelt d-nummer.
@@ -86,7 +86,7 @@ h4. AuthMethod
 I tillegg til "basisverdiene for norske eID":SAMLAssertionV1#AuthMethod kan AuthMethod ogso ha verdien: 
 
 |_. Kodeverdi |_. Beskrivelse |
-|eIDAS | Autentisering utført med europeisk eID |
+|Eidas | Autentisering utført med europeisk eID |
 
 h4. status
 
@@ -132,7 +132,7 @@ Eksempel på europeisk eID utan D-nummer:
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="AuthMethod">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">eidas</saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Eidas</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="SecurityLevel">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
@@ -208,7 +208,7 @@ Eksempel på europeisk eID med D-nummer og der personen har oppgitt kontaktopply
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">en</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="AuthMethod">
-         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">eidas</saml:AttributeValue>
+         <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">Eidas</saml:AttributeValue>
       </saml:Attribute>
       <saml:Attribute Name="SecurityLevel">
          <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">3</saml:AttributeValue>
