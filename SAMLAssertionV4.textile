@@ -21,6 +21,7 @@ Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attrib
 
 Følgende 3 grunn-kombinasjoner er mulige:
 
+table(table table-striped).
 | AuthMethod | eIdentifier | uid | Beskrivelse |
 | Eidas | NC/NC/xxxxxx... | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
 | Eidas | NC/NC/xxxxxx... |"personidentifikator":/Felles/personidentifikator |  Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
@@ -32,6 +33,7 @@ h4. Attributter
 
 Denne SAML-profilen inneholder alle attributter fra "SAMLAssertionV3":SAMLAssertionV3 :
 
+table(table table-striped).
 |_. Term |_. Beskrivelse |_. Kardinalitet |
 | uid | "personidentifikator":/Felles/personidentifikator . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 1 |
 | SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
@@ -47,6 +49,7 @@ Denne SAML-profilen inneholder alle attributter fra "SAMLAssertionV3":SAMLAssert
 
 I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS / STORK  (se nærmere definisjoner i rapport "'D5.7.3 Functional Design for PEPS, MW models and interoperability'":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 fra STORK-prosjektet):
 
+table(table table-striped).
 |_.Field |_.Type |_.Values and comment |_. Kardinalitet |
 |eidas-eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
 |eidas-givenName |String ||0..1 |
@@ -74,6 +77,7 @@ Vær oppmerksom på at noen land kan sende med ekstra attributter utover de som 
 
 I tillegg utleverer vi et statusflagg for integrasjonen mot DSF:
 
+table(table table-striped).
 |_. Term |_. Beskrivelse |_. Kardinalitet |
 | "status-dsf":/Felles/status-dsf  | Kodeverk for "status-dsf":#status-dsf | 0..1 |
 
@@ -85,6 +89,7 @@ h4. AuthMethod
 
 I tillegg til "basisverdiene for norske eID":SAMLAssertionV1#AuthMethod kan AuthMethod ogso ha verdien: 
 
+table(table table-striped).
 |_. Kodeverdi |_. Beskrivelse |
 |Eidas | Autentisering utført med europeisk eID |
 
@@ -92,6 +97,7 @@ h4. status
 
 "status":/Felles/status gjelder personens status i Kontakt- og Reservasjonsregisteret, og kan ha følgende verdi:
 
+table(table table-striped).
 |_. Kodeverdi |_. Beskrivelse |
 | AKTIV | Person finnes i Kontakt- og Reservasjonsregisteret |
 | IKKE_REGISTRERT | Person finnes ikke i Kontakt- og Reservasjonsregisteret, enten ikke registrert eller slettet |
@@ -109,6 +115,7 @@ h4. status-dsf
 
 "status-dsf":/Felles/status-dsf gjelder ID-portens integrasjonsstatus mot Det Sentrale Folkeregisteret (DSF).
 
+table(table table-striped).
 |_. Kodeverdi |_. Beskrivelse |
 | OK | ID-porten har som del av innlogging gjennomført en spørring mot DSF uten tekniske feil|
 | SYSTEMFEIL	| ID-porten har ikke tilgang til informasjon fra Det Sentrale Folkeregisteret , f.eks. ved feil i integrasjon mot registrert. |

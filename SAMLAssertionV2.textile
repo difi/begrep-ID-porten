@@ -14,6 +14,7 @@ group: ID-porten/complexType
 
 h4. Attributer
 
+table(table table-striped).
 |_. Term |_. Beskrivelse |_. Kardinalitet |
 | uid | "personidentifikator":/Felles/personidentifikator | 1|
 | SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
@@ -29,6 +30,7 @@ h4. Kodeverk
 
 h5. Status
 
+table(table table-striped).
 |_. DigitalContactInfoStatus |_. Beskrivelse |
 | SAMTYKKET_GENERELT	| Bruker har samtykket til utlevering av Digital kontaktinformasjon til alle tjenesteeiere |
 | SAMTYKKET_SPESIFIKT	| Sluttbruker har samtykket til utlevering av Digital kontaktinformasjon til tjenesteeier. |

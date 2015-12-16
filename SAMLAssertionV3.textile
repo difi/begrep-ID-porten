@@ -14,6 +14,7 @@ group: ID-porten/complexType
 
 h4. Attributer
 
+table(table table-striped).
 |_. Term |_. Beskrivelse |_. Kardinalitet |
 | uid | "personidentifikator":/Felles/personidentifikator | 1 |
 | SecurityLevel | "sikkerhetsnivaa":/Felles/sikkerhetsnivaa | 1 |
@@ -33,6 +34,7 @@ h4. status
 
 "status":/Felles/status kan ha følgende verdi:
 
+table(table table-striped).
 |_. Kodeverdi |_. Beskrivelse |
 | AKTIV | Person finnes i registeret |
 | IKKE_REGISTRERT | Person finnes ikke i registeret, enten ikke registrert eller slettet |
