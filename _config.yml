@@ -1,0 +1,57 @@
+# name of the software
+name: ID-porten
+siteUrlText: difi.github.io/begrep-ID-porten
+
+# current version of the software
+version: 1.0
+# url of the download button
+# downloadUrl: https://www.nuget.org/packages/difi-sikker-digital-post-klient/
+
+# licence of the software
+license: MIT License
+licenseUrl: http://opensource.org/licenses/MIT
+
+#baseurl: "/sikker-digital-post-net-klient" # the subpath of your site, e.g. /blog/
+baseurl: "/begrep-ID-porten"
+
+# list of additional links on the right of the top menu
+headerLinks:
+  - title: Om sikker digital post
+    url: /sikker-digital-post-klient-dotnet/about.html
+  - title: GitHub
+    url: https://github.com/difi/sikker-digital-post-net-klient
+  - title: Issues
+    url: https://github.com/difi/sikker-digital-post-net-klient/issues
+
+# github buttons
+githubButton:
+  user: difi
+  repo: begrep-ID-porten
+
+# twitter buttons
+twitter:
+  enabled: false
+  via:
+  hash:
+  account:
+
+# facebook buttons
+facebook:
+  enabled: false
+  profileUrl:
+
+# google analytics
+analytics:
+  enbled: false
+  trackingid: UA-78356843-1
+  domain: auto
+
+highlighter: rouge  
+
+#gems:
+#  - jekyll-redirect-from
+
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile']
+
+kramdown:
+  input: GFM

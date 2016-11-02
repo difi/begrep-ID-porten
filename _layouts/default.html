@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="//www.difi.no/_style/lib/html5shiv/html5shiv-3.7.2.min.js"></script>
 	<script type="text/javascript" src="//www.difi.no/_style/lib/respond/respond-1.4.2.min.js"></script>
 	<![endif]-->
+	<script type="text/javascript" src="//www.difi.no/_style/lib/jquery/jquery-1.11.1.min.js"></script>
 	<body class="nodetype-blogg content-article aside-right" >
 		<a id="top"/>
 			<div id="skip-link">
@@ -44,53 +45,13 @@
 							</ul>
 						</div>
 					</div>
-
 				</header>
-				<div id="above-content">
-					<div>
-						<section class="box title">
-							<div class="heading">
-							</div>
-							<div class="body">
-								<h1>
-								<span style="opacity: 1; transition: opacity 500ms; -webkit-transition: opacity 500ms;">
-									{{page.title}}
-								</span>
-								</h1>
-							</div>
-						</section>
-						<div class="col-md-9" role="main">
-							<!-- Info box notifying that you are using old documentation -->
-							{% if page.url contains site.currentVersion %}
-							{% elsif page.url contains site.aboutSide %}
-							{% else %}
-								<div class="alert alert-info">
-									Du ser nå på dokumentasjonen for Sikker-digital-post-klient-dotnet {{ page.url | replace: '/', '' | replace: 'v', ''}}, som ikke er den nyeste versjonen av klienten. Den nyeste versjonen er {{ site.currentVersion}} og kan nåes <a href="{{ site.baseurl }}/">her</a>.
-								</div>
-							{% endif %}
-						</div>
-					</div>
-				</div>
 				{% if page.url contains site.aboutSide %}
 					{{content}}
 				{% else %}
 					<div id="main" class="with-aside">
 						<section id="content" tabindex="-1">
 							<article class="one-col">
-								{% if site.downloadUrl != "" %}
-									<div class="body">
-										<div class="button custom" data-button-type="0" data-url="{{ site.downloadUrl }}" role="button" tabindex="0">
-											<div class="logo">
-												<img alt="logo" src="//www.difi.no/modules/contrib/difi_ckeditor_widgets/plugins/difibutton/icons/difibutton.png">
-											</div>
-											<div class="text">
-												<div class="title">Last ned</div>
-												<div class="sub-title">Gå til {{ site.downloadUrl }}</div>
-											</div>
-											<div class="arrow">›</div>
-										</div>
-									</div>
-								{% endif %}
 								{{content}}
 							</article>
 						</section>
@@ -141,7 +102,6 @@
 				</a>
 			</div>
 
-			<script type="text/javascript" src="//www.difi.no/_style/lib/jquery/jquery-1.11.1.min.js"></script>
 			<script type="text/javascript" src="//www.difi.no/_style/lib/bootstrap3/js/bootstrap.js"></script>
 			<script type="text/javascript" src="//www.difi.no/themes/contrib/difi3/js/jquery.flexnav.min.js"></script>
 			<script type="text/javascript" src="{{site.baseurl}}/js/docs.min.js"></script>

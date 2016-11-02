@@ -100,10 +100,6 @@ layout: default
 
 var slice = Array.prototype.slice;
 
-function $(expr, parent) {
-    return typeof expr === "string" ? (parent || document).querySelector(expr) : expr || null;
-}
-
 function $$(expr, parent) {
     return slice.call((parent || document).querySelectorAll(expr));
 }
@@ -121,12 +117,7 @@ $.bind = function(element, o) {
 };
 
 $.toggleDetails = function (element) {
-    if (element.classList.contains('open')) {
-        element.classList.remove('open');
-    }
-    else {
-        element.classList.add('open');
-    }
+	$(element).toggle();
 }
 
 // Initialization
@@ -135,6 +126,7 @@ function init() {
     $$('.swagger-method-title').forEach(function (title) {
         $.bind(title, {
             'click': function (e) {
+				window.console.log('bound');
                 var details = $('.swagger-method-details', title.parentNode)
                 $.toggleDetails(details);
                 e.preventDefault();
@@ -143,13 +135,10 @@ function init() {
     });
 }
 
+$(function() {
+	window.console.log('start init');
+	init();
+	window.console.log('end init');
+});
 
-// DOM already loaded?
-if (document.readyState !== "loading") {
-    init();
-}
-else {
-    // Wait for it
-    document.addEventListener("DOMContentLoaded", init);
-}
 </script>
