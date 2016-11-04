@@ -80,6 +80,7 @@
                         {"BEST_EFFORT": "Attributter fra utenlandsk eID er benyttet til koble mot sannsynlig identitet i Det Sentrale Folkeregister.  (For eksempel: navn og fødselsdato stemmer med en person i DSF)"},
                         {"CACHED": "Kobling mot norsk personidentifikator er basert på lagret informasjon i ID-porten, og ikke som del av denne innloggingen.  (dette kan typisk skje ved integrasjonsfeil mellom ID-porten og DSF) "},
                         {"ERROR": "Det oppstod en feil ved forsøket på å koble utenlandsk eID mot norsk personidentifikator (Dette kan skje feks ved feil i kommuniksajonen mellom ID-porten og Det Sentrale Folkeregisteret"},
+						"NOT_FOUND":"Ingen treff ved forsøk på kobling av utenlandsk eID mot norsk personidentifikator i Det Sentrale Folkereigster)",
                         {"SELF_DECLARED": "Norsk personidentifikator er basert på opplysninger som brukeren selv har oppgitt (Brukeren har for eksempel koblet sin Facebook-konto med ID-porten"}
                     ]
                 },
