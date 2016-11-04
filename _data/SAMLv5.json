@@ -70,6 +70,7 @@
                 "uid": {
                     "type": "string",
                     "description": "Norsk personidentifikator.  (Fødselsnummer eller D-nummer)"
+					"example": "31125012345"
                 },
                 "IdentityMatch": {
                     "type": "string",
