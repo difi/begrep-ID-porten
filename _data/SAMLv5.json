@@ -87,7 +87,8 @@
                 },
                 "SecurityLevel": {
                     "type": "string",
-                    "description": "sikkerhetsnivå brukt ved innlogging.  [= 3,4 eller substational eller high for eIDAS.]"
+                    "description": "sikkerhetsnivå brukt ved innlogging.  [= 3,4 eller substational eller high for eIDAS.]",
+					"example":"high"
                 },
                 "eidas-PersonIdentifier": {
                     "type": "string",
@@ -96,15 +97,18 @@
                 },
                 "eidas-CurrentFamilyName": {
                     "type": "string",
-                    "description": "Gjeldande etternavn for eidas-brukere"
+                    "description": "Gjeldande etternavn for eidas-brukere",
+					"example":"Smith"
                 },
                 "eidas-CurrentGivenName": {
                     "type": "string",
-                    "description": "Gjeldande fornavn for eidas-brukere"
+                    "description": "Gjeldande fornavn for eidas-brukere",
+					"example":"John"
                 },
                 "eidas-DateOfBirth": {
                     "type": "string",
                     "description": "Fødselsdato for eidas-brukere.  (TODO sepsifisere datoformat)"
+					"example":"1987-12-31"
                 }
             }
         }
