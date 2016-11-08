@@ -2,9 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "ID-porten SAML Assertion v5",
-        "description": "SAML-profil som støtter innlogging med utenlandsk eID gjennom eIDAS-infrastrukuren. Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det. ID-porten er basert på SAML2 Web Browswer SSO profile.
-		
-		For meir info, sjå https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eID+eIDAS+profile",
+        "description": "SAML-profil som støtter innlogging med utenlandsk eID gjennom eIDAS-infrastrukuren. Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det. ID-porten er basert på SAML2 Web Browswer SSO profile. For meir info, sjå https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eID+eIDAS+profile",
         "version": "5.0.0"
     },
     "host": "www.difi.no",
