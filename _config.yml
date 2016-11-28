@@ -10,7 +10,7 @@ license: GPL-3 License
 licenseUrl: http://opensource.org/licenses/GPL-3.0
 
 #baseurl: "/meldingsutveksling-mellom-offentlige-virksomheter" # the subpath of your site, e.g. /blog/
-baseurl: "/idporten-oidc-dokumentasjon"
+baseurl: "/begrep-ID-porten"
 
 ##Version handling
 currentCollecion: "vStaging"
@@ -29,7 +29,7 @@ aboutSide: "about.html"
 # list of additional links on the right of the top menu
 headerLinks:
   - title: Om ID-porten SAML
-    url: /idporten-oidc-dokumentasjon/about.html
+    url: /begrep-ID-porten/about.html
 
 # github buttons
 githubButton:
