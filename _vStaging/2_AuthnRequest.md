@@ -16,7 +16,13 @@ SAMLRequest=<req>&SigAlg=<alg>&Signature=<SIGNATUR>
 
 ## Attributer
 
-|*. Term |*. Beskrivelse |*. Kardinalitet |
+| Parameter  | Verdi |
+| --- | --- |
+
+
+
+| Term | Beskrivelse | Kardinalitet |
+| --- | --- | --- |
 | AuthnContextClassRef | Autentiseringsnivå spesifisert i henhold til kodeverk for [AuthnContextClassRef](#AuthnContextClassRef) beskrevet under | 0..1 |
 | ForceAuth | Vil kreve at brukeren gjennomfører autentisering . | 0..1 |
 | locale | [spraak](/Felles/spraak), se under for hvilke språk som er støttet | 0..1 |
@@ -28,11 +34,14 @@ SAMLRequest=<req>&SigAlg=<alg>&Signature=<SIGNATUR>
 
 Kodeverk for AuthnContextClassRef er definert som under, der hver AuthnContextClassRef er knyttet til et spesielt 
 [sikkerhetsnivaa](/Felles/sikkerhetsnivaa) slik:
-|*. AuthnContextClassRef |*. [sikkerhetsnivaa](/Felles/sikkerhetsnivaa) |
+
+| AuthnContextClassRef | [sikkerhetsnivaa](/Felles/sikkerhetsnivaa) |
+| --- | --- | --- |
 | urn:oasis:names:tc:SAML:2.0:ac:classes:Unspecified | 3 |
 | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport | 3 |
 | urn:oasis:names:tc:SAML:2.0:ac:classes:SmartcardPKI | 4 |
-ID-porten vil tolke alle forespørsler til AuthnContextClassRef er urn:oasis:names:tc:SAML:2.0:ac:classes:Unspecified om RequestedAuthnContext ikke er inkludert i <AuthnRequest>.
+
+ID-porten vil tolke alle forespørsler til AuthnContextClassRef er urn:oasis:names:tc:SAML:2.0:ac:classes:Unspecified om RequestedAuthnContext ikke er inkludert i \<AuthnRequest\>.
 
 ### Språk
 
