@@ -1,27 +1,35 @@
 # name of the software
-name: ID-porten
-siteUrlText: difi.github.io/begrep-ID-porten
+name: ID-porten SAML dokumentasjon
+siteUrlText: http://difi.github.io/begrep-ID-porten/
 
 # current version of the software
-version: 1.0
-# url of the download button
-# downloadUrl: https://www.nuget.org/packages/difi-sikker-digital-post-klient/
+version: Staging
 
 # licence of the software
-license: MIT License
-licenseUrl: http://opensource.org/licenses/MIT
+license: GPL-3 License
+licenseUrl: http://opensource.org/licenses/GPL-3.0
 
-#baseurl: "/sikker-digital-post-net-klient" # the subpath of your site, e.g. /blog/
-baseurl: "/begrep-ID-porten"
+#baseurl: "/meldingsutveksling-mellom-offentlige-virksomheter" # the subpath of your site, e.g. /blog/
+baseurl: "/idporten-oidc-dokumentasjon"
+
+##Version handling
+currentCollecion: "vStaging"
+currentVersion: "Staging"
+versions: ["Staging"]
+
+# Collection of versions
+collections:
+  vStaging:  
+    output: true
+    permalink: /vStaging/
+
+aboutSide: "about.html"
+## End of Version handling
 
 # list of additional links on the right of the top menu
 headerLinks:
-  - title: Om sikker digital post
-    url: /sikker-digital-post-klient-dotnet/about.html
-  - title: GitHub
-    url: https://github.com/difi/sikker-digital-post-net-klient
-  - title: Issues
-    url: https://github.com/difi/sikker-digital-post-net-klient/issues
+  - title: Om ID-porten SAML
+    url: /idporten-oidc-dokumentasjon/about.html
 
 # github buttons
 githubButton:
@@ -42,14 +50,14 @@ facebook:
 
 # google analytics
 analytics:
-  enbled: false
-  trackingid: UA-78356843-1
-  domain: auto
+  account:
+  domain:
 
-highlighter: rouge  
+# DON'T MODIFY
+highlight: rouge
 
-#gems:
-#  - jekyll-redirect-from
+gems:
+  - jekyll-redirect-from
 
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile']
 
