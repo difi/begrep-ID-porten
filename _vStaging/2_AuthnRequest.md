@@ -16,10 +16,6 @@ SAMLRequest=<req>&SigAlg=<alg>&Signature=<SIGNATUR>
 
 ## Attributer
 
-| Parameter  | Verdi |
-| --- | --- |
-
-
 
 | Term | Beskrivelse | Kardinalitet |
 | --- | --- | --- |
@@ -46,7 +42,8 @@ ID-porten vil tolke alle forespørsler til AuthnContextClassRef er urn:oasis:nam
 ### Språk
 
 Følgende språk er støttet i forespørselen:
-|*. ISO 639-1 kode |\_. Språk |
+| ISO 639-1 kode | Språk |
+| --- | --- |
 | nb | Bokmål |
 | nn | nynorsk |
 | se | Samisk |
@@ -55,8 +52,8 @@ Følgende språk er støttet i forespørselen:
 ## eksempel
 
 Eksempel forespørsel:
-```
 
+```
 <samlp:RequestedAuthnContext xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Comparison="minimum">
  <saml:AuthnContextClassRef xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
  urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
@@ -65,6 +62,7 @@ Eksempel forespørsel:
 ```
 
 Eksempel på bruk av OnBehalfOf:
+
 ```
 <samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ...>
  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">TJENESTELEVERANDOR</saml:Issuer>

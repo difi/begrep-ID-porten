@@ -1,5 +1,5 @@
 ---
-title: ID-porten SAML
+title: ID-porten
 pageid: pilot-introduction
 layout: default
 description: SAML
@@ -15,7 +15,7 @@ ID-porten er et nav/tillitsanker for offentlig virksomheter. ID-porten knytter d
 
 ## Autentiseringsforespørsel
 
-[SAMLAuthnRequest](SAMLAuthnRequest)
+[2_AuthnRequest](SAML AuthnRequest)
 
 ## SAML2Assertion profiler
 
