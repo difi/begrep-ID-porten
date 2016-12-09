@@ -10,31 +10,28 @@ category: vStaging
 
 ## Introduksjon
 
-SAML-profil som støtter innlogging med utenlandsk eID gjennom eIDAS-infrastrukuren. Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det. For meir info om eIDAS, sjå https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eID+eIDAS+profile
+SAML-profil som støtter innlogging med utenlandsk eID gjennom eIDAS-infrastrukuren. Denne SAML-profilen er berre tilgjengeleg for tenesteeigarar som ber om det. For meir info om eIDAS, sjå [https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eID+eIDAS+profile](https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eID+eIDAS+profile).
 
 ID-porten er basert på SAML2 Web Browswer SSO profile.
 
 
 ## Identifisering
 
-Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attributter kunne variere alt etter om det er norsk eller europeisk eID som vart nytta til innlogging. Viss attributten ”AuthMethod“:\#AuthMethod har verdi Eidas, tyder dette at autentisering er føreteke med ein europeisk eID, og attributten **eIdentifier** er då unik identifikator.
+Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attributter kunne variere alt etter om det er norsk eller europeisk eID som vart nytta til innlogging. Viss attributten [AuthMethod](#authmethod) har verdi Eidas, tyder dette at autentisering er føreteke med ein europeisk eID, og attributten *PersonIdentifier* er då unik identifikator.
 
 | AuthMethod | PersonIdentifier | uid | Beskrivelse |
 | --- | ---- | --- | --- |
 | Eidas | CC/NO/xxxxxx… | <tomt> | Personen har autentisert seg med europeisk eID. Norsk D-nummer ble ikke funnet.|
-| Eidas | CC/NO/xxxxxx… |”personidentifikator“:/Felles/personidentifikator | Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
-|”En av disse“:SAMLAssertionV1\#AuthMethod| <tomt> |”personidentifikator“:/Felles/personidentifikator | Personen har autentisert seg med norsk eID. |
+| Eidas | CC/NO/xxxxxx… | norsk personidentifikator | Personen har autentisert seg med europeisk eID og har norsk D-nummer. |
+| [En av disse](https://begrep.difi.no/ID-porten/SAMLAssertionV1)| <tomt> | norsk personidentifikator | Personen har autentisert seg med norsk eID. |
 
-For alle europeiske eID vil ID-porten forsøke å framskaffe et eventuelt norsk d-nummer/fødselsnummer fra Det Sentrale Folkeregister (DSF). Hvis et d-nummer ikke ble funnet, eller ved integrasjonsproblem mot DSF, vil ID-porten likevel fullføre autentiseringen, dersom ikke tjenesten er manuelt konfigurert til kreve norsk personidentifikator. Dette betyr at fravær av verdi i feltet **uid** ikke entydig garanterer at personen ikke har fått tildelt d-nummer
-
-
-
+For alle europeiske eID vil ID-porten forsøke å framskaffe et eventuelt norsk d-nummer/fødselsnummer fra Det Sentrale Folkeregister (DSF). Hvis et d-nummer ikke ble funnet, eller ved integrasjonsproblem mot DSF, vil ID-porten likevel fullføre autentiseringen, dersom ikke tjenesten er manuelt konfigurert til kreve norsk personidentifikator. Dette betyr at fravær av verdi i feltet *uid* ikke entydig garanterer at personen ikke har fått tildelt d-nummer
 
 
 ## Attributter
 
 
-Denne SAML-profilen inneholder alle attributter fra”SAMLAssertionV3“:SAMLAssertionV3 :
+Denne SAML-profilen inneholder alle attributter fra [SAMLAssertionV3](https://begrep.difi.no/ID-porten/SAMLAssertionV3) :
 
 | *Term* | *Beskrivelse* | *Kardinalitet* |
 | --- | --- | --- |
@@ -50,11 +47,12 @@ Denne SAML-profilen inneholder alle attributter fra”SAMLAssertionV3“:SAMLAss
 | [reservasjon](/Felles/reservasjon) | [reservasjon](/Felles/reservasjon) | 0..1 |
 | [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | 0..1 |
 
+
 I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS / STORK :
 
-| *Term* | *Beskrivelse* | *Verdi og kommentar* |*. Kardinalitet |
+| Term | Beskrivelse | Verdi og kommentar | Kardinalitet |
 | --- | --- | --- |
-|eidas-PersonIdentifier  |String |CC/NO/xxxxxxxxxx…. |1 |  CC er ISO3166-1 landkode som har utstedt den aktuelle eIDen.
+|eidas-PersonIdentifier  |String |CC/NO/xxxxxxxxxx… &nbsp;  CC er ISO3166-1 landkode som har utstedt den aktuelle eIDen. | 0..1 | 
 |eidas-currentFamilyName |String | Etternavn | 0..1 |
 |eidas-currentGivenName  |String | Fornavn | 0..1 |
 |eidas-dateOfBirth       |Date   | YYYY-MM-DD | 0..1 |
@@ -67,13 +65,17 @@ I tillegg utleverer vi for ikke-norske eID et statusflagg som forteller kvalitet
 | --- | --- | --- |
 | IdentityMatch | Kvalitetsindikator for kobling ('matching') mot norsk personidentifikator.| 0..1 |
 
+
+I fremtiden kan profilen bli utvidet med flere attributter, dersom nye eID blir koblet på løsningen.
+
+
 ## Kodeverk
 
 Denne SAML-profile utvider kodeverket for flere av de eksisterende attributtene i ID-porten.
 
 ### sikkerhetsnivaa
 
-se http://begrep.difi.no/Felles/sikkerhetsnivaa for eksisternde verdier.
+se [http://begrep.difi.no/Felles/sikkerhetsnivaa](http://begrep.difi.no/Felles/sikkerhetsnivaa) for eksisternde verdier.
 
 | sikkerhetsnivaa | forklaring |
 | --- | --- |
@@ -85,7 +87,7 @@ se http://begrep.difi.no/Felles/sikkerhetsnivaa for eksisternde verdier.
 
 ### AuthMethod
 
-Se http://begrep.difi.no/ID-porten/SAMLAssertionV1#AuthMethod for eksistende verdier.
+Se [http://begrep.difi.no/ID-porten/SAMLAssertionV1#AuthMethod](http://begrep.difi.no/ID-porten/SAMLAssertionV1#AuthMethod) for eksistende verdier.
 
 I tillegg innfører vi per 1.1.2017 to nye verdier (kan blir utvidet med flere senere)
 
