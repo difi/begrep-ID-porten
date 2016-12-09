@@ -11,11 +11,11 @@ ID-porten er et nav/tillitsanker for offentlig virksomheter. ID-porten knytter d
 
 ## Integrasjonsguide:
 
--   Integrasjonsguide er tilgjengelig på [DIFI sin samarbeidsportal](http://samarbeid.difi.no)
+Integrasjonsguide er tilgjengelig på [DIFI sin samarbeidsportal](http://samarbeid.difi.no)
 
 ## Autentiseringsforespørsel
 
-[2_AuthnRequest](SAML AuthnRequest)
+[SAML AuthnRequest](2_authnrequest)
 
 ## SAML2Assertion profiler
 
@@ -27,5 +27,5 @@ Responsen fra ID-porten vil være en av følgende forskjellige profiler:
 |[SAMLAssertionV2](http://begrep.difi.no/ID-porten/)|FORELDET, kun tilgjengelig for å være bakoverkompatibel|
 |[SAMLAssertionV3](http://begrep.difi.no/ID-porten/)|Utvidet profil med informasjon fra kontakt og reservasjonsregisteret|
 |[SAMLAssertionV4](http://begrep.difi.no/ID-porten/)|FORELDET, Utvidet profil som i tillegg til norske eID støtter autentisering av utenlandsk eID gjennom EU-prosjektet STORK|
-|[SAMLAssertionV5](SAMLAssertionV5)|Utvidet profil som i tillegg til norske eID støtter autentisering av  europeiske eID gjennom eIDAS-infrastrukturen, samt kan utvides med flere utenlandske eID senere|
+|[SAMLAssertionV5](3_SAMLAssertionv5)|Utvidet profil som i tillegg til norske eID støtter autentisering av  europeiske eID gjennom eIDAS-infrastrukturen, samt kan utvides med flere utenlandske eID senere|
 

@@ -27,6 +27,8 @@ Sidan profilen støttar både norske og europeiske eID, vil tilgjengelege attrib
 
 For alle europeiske eID vil ID-porten forsøke å framskaffe et eventuelt norsk d-nummer/fødselsnummer fra Det Sentrale Folkeregister (DSF). Hvis et d-nummer ikke ble funnet, eller ved integrasjonsproblem mot DSF, vil ID-porten likevel fullføre autentiseringen, dersom ikke tjenesten er manuelt konfigurert til kreve norsk personidentifikator. Dette betyr at fravær av verdi i feltet *uid* ikke entydig garanterer at personen ikke har fått tildelt d-nummer
 
+Kvaliteten på koblinga fremgår av attributten [IdentityMatch](#identitymatch)
+
 
 ## Attributter
 
@@ -103,7 +105,7 @@ Kvalitetsindikator for kobling ('matching') mot norsk personidentifikator
 
 | IdentityMatch | forklaring |
 | --- | --- |
-| UNAMBIGUOS | Identifikator fra utenlandsk eID'en har en entydig kobling mot identitet i Den Sentrale Folkeregister |
+| UNAMBIGUOS | Identifikator fra utenlandsk eID'en har en entydig kobling mot identitet i Det Sentrale Folkeregister |
 | BEST_EFFORT | Attributter fra utenlandsk eID er benyttet til koble mot sannsynlig identitet i Det Sentrale Folkeregister.  (For eksempel: navn og fødselsdato stemmer med en person i DSF) |
 | CACHED | Kobling mot norsk personidentifikator er basert på lagret informasjon i ID-porten, og ikke som del av denne innloggingen.  (dette kan typisk skje ved midlertidige integrasjonsfeil mellom ID-porten og DSF)|
 | ERROR | Det oppstod en feil ved forsøket på å koble utenlandsk eID mot norsk personidentifikator (Dette kan skje feks ved feil i kommuniksajonen mellom ID-porten og Det Sentrale Folkeregisteret|
