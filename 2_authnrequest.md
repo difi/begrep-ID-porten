@@ -42,12 +42,14 @@ ID-porten vil tolke alle forespørsler til AuthnContextClassRef er urn:oasis:nam
 ### Språk
 
 Følgende språk er støttet i forespørselen:
+
 | ISO 639-1 kode | Språk |
 | --- | --- |
 | nb | Bokmål |
 | nn | nynorsk |
 | se | Samisk |
 | en | Engelsk |
+
 
 ## eksempel
 

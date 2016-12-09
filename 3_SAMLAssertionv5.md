@@ -50,7 +50,7 @@ Denne SAML-profilen inneholder alle attributter fra [SAMLAssertionV3](https://be
 | [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | 0..1 |
 
 
-I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS / STORK :
+I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS  :
 
 | Term | Beskrivelse | Verdi og kommentar | Kardinalitet |
 | --- | --- | --- |
