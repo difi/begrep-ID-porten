@@ -27,6 +27,8 @@ h4. Kodeverk
 
 h5. AuthMethod
 
+Autentiseringmetode brukt ved innlogging.  Vi gjer merksam på at kodeverket kan endre seg etter kvart som eIDene i ID-porten endrer seg. 
+
 table(table table-striped).
 |_. AuthMetod |_.	Beskrivelse |
 | Minid-PIN	| Bruker har logget seg på med PIN koder fra PIN kode ark. |
