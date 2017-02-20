@@ -37,28 +37,21 @@ Denne SAML-profilen inneholder alle attributter fra [SAMLAssertionV3](https://be
 
 | *Term* | *Beskrivelse* | *Kardinalitet* |
 | --- | --- | --- |
-| uid | [personidentifikator](/Felles/personidentifikator) . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 1 |
+| uid | [personidentifikator](/Felles/personidentifikator) . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 0..1 |
 | SecurityLevel | [sikkerhetsnivaa](/Felles/sikkerhetsnivaa) | 1 |
 | Culture | [språk](/Felles/spraak) | 1 |
 | AuthMethod | [Autentiseringsmetode](SAMLAssertionV1#AuthMethod) | 1 |
-| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
-| AuthnContextClassRef | Autentiseringsnivå spesifisert i henhold til kodeverk for [AuthnContextClassRef](SAMLAuthnRequest#AuthnContextClassRef) | 1 |
-| [status](/Felles/status) | Kodeverk for [status](#status) | 0..1 |
-| [mobiltelefonnummer](/Felles/mobiltelefonnummer) | [mobiltelefonnummer](/Felles/mobiltelefonnummer) | 0..1 |
-| [epostadresse](/Felles/epostadresse) | [epostadresse](/Felles/epostadresse) | 0..1 |
 | [reservasjon](/Felles/reservasjon) | [reservasjon](/Felles/reservasjon) | 0..1 |
+| [epostadresse](/Felles/epostadresse) | [epostadresse](/Felles/epostadresse) | 0..1 |
+| [mobiltelefonnummer](/Felles/mobiltelefonnummer) | [mobiltelefonnummer](/Felles/mobiltelefonnummer) | 0..1 |
 | [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | 0..1 |
-
-
-I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS  :
-
-| Term | Beskrivelse | Verdi og kommentar | Kardinalitet |
-| --- | --- | --- |
+| [status](/Felles/status) | Kodeverk for [status](#status) | 0..1 |
 |eidas-PersonIdentifier  |String |CC/NO/xxxxxxxxxx… &nbsp;  CC er ISO3166-1 landkode som har utstedt den aktuelle eIDen. | 0..1 | 
-|eidas-currentFamilyName |String | Etternavn | 0..1 |
-|eidas-currentGivenName  |String | Fornavn | 0..1 |
-|eidas-dateOfBirth       |Date   | YYYY-MM-DD | 0..1 |
-|eidas-samlRespons       |String | Den komplette, dekrypterte SamlRespons-meldingen som ID-porten mottok fra eIDAS.  Sektor-spesifikke og valgfrie attributter vil finnes her|
+|eidas-CurrentFamilyName |String | Etternavn | 0..1 |
+|eidas-CurrentGivenName  |String | Fornavn | 0..1 |
+|eidas-DateOfBirth       |Date   | YYYY-MM-DD | 0..1 |
+|eidas-samlResponse       |String | Den komplette, dekrypterte SamlRespons-meldingen som ID-porten mottok fra eIDAS.  Sektor-spesifikke og valgfrie attributter vil finnes her|
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
 
 
 I tillegg utleverer vi for ikke-norske eID et statusflagg som forteller kvaliteten på koblinga mot norsk personidentifikator:
