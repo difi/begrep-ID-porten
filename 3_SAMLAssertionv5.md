@@ -37,15 +37,15 @@ Denne SAML-profilen inneholder alle attributter fra [SAMLAssertionV3](https://be
 
 | *Term* | *Beskrivelse* | *Kardinalitet* |
 | --- | --- | --- |
-| uid | [personidentifikator](/Felles/personidentifikator) . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 0..1 |
-| SecurityLevel | [sikkerhetsnivaa](/Felles/sikkerhetsnivaa) | 1 |
-| Culture | [språk](/Felles/spraak) | 1 |
+| uid | [personidentifikator](https://begrep.difi.nohttps://begrep.difi.no/Felles/personidentifikator) . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 0..1 |
+| SecurityLevel | [sikkerhetsnivaa](https://begrep.difi.no/Felles/sikkerhetsnivaa) | 1 |
+| Culture | [språk](https://begrep.difi.no/Felles/spraak) | 1 |
 | AuthMethod | [Autentiseringsmetode](SAMLAssertionV1#AuthMethod) | 1 |
-| [reservasjon](/Felles/reservasjon) | [reservasjon](/Felles/reservasjon) | 0..1 |
-| [epostadresse](/Felles/epostadresse) | [epostadresse](/Felles/epostadresse) | 0..1 |
-| [mobiltelefonnummer](/Felles/mobiltelefonnummer) | [mobiltelefonnummer](/Felles/mobiltelefonnummer) | 0..1 |
-| [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | [postkasseleverandoerNavn](/Felles/postkasseleverandoerNavn) | 0..1 |
-| [status](/Felles/status) | Kodeverk for [status](#status) | 0..1 |
+| [reservasjon](https://begrep.difi.no/Felles/reservasjon) | [reservasjon](https://begrep.difi.no/Felles/reservasjon) | 0..1 |
+| [epostadresse](https://begrep.difi.no/Felles/epostadresse) | [epostadresse](https://begrep.difi.no/Felles/epostadresse) | 0..1 |
+| [mobiltelefonnummer](https://begrep.difi.no/Felles/mobiltelefonnummer) | [mobiltelefonnummer](https://begrep.difi.no/Felles/mobiltelefonnummer) | 0..1 |
+| [postkasseleverandoerNavn](https://begrep.difi.no/Felles/postkasseleverandoerNavn) | [postkasseleverandoerNavn](https://begrep.difi.no/Felles/postkasseleverandoerNavn) | 0..1 |
+| [status](https://begrep.difi.no/Felles/status) | Kodeverk for [status](#status) | 0..1 |
 |eidas-PersonIdentifier  |String |CC/NO/xxxxxxxxxx… &nbsp;  CC er ISO3166-1 landkode som har utstedt den aktuelle eIDen. | 0..1 | 
 |eidas-CurrentFamilyName |String | Etternavn | 0..1 |
 |eidas-CurrentGivenName  |String | Fornavn | 0..1 |
@@ -70,7 +70,7 @@ Denne SAML-profile utvider kodeverket for flere av de eksisterende attributtene 
 
 ### sikkerhetsnivaa
 
-se [http://begrep.difi.no/Felles/sikkerhetsnivaa](http://begrep.difi.no/Felles/sikkerhetsnivaa) for eksisternde verdier.
+se [http://begrep.difi.nohttps://begrep.difi.no/Felles/sikkerhetsnivaa](http://begrep.difi.nohttps://begrep.difi.no/Felles/sikkerhetsnivaa) for eksisternde verdier.
 
 | sikkerhetsnivaa | forklaring |
 | --- | --- |
