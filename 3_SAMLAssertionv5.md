@@ -37,10 +37,10 @@ Denne SAML-profilen inneholder alle attributter fra [SAMLAssertionV3](https://be
 
 | *Term* | *Beskrivelse* | *Kardinalitet* |
 | --- | --- | --- |
-| uid | [personidentifikator](https://begrep.difi.nohttps://begrep.difi.no/Felles/personidentifikator) . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 0..1 |
+| uid | [personidentifikator](https://begrep.difi.no/Felles/personidentifikator) . Norsk personnummer hvis funnet. Merk at i denne SAML-profilen kan feltet være tomt ved pålogging med europeisk eID. | 0..1 |
 | SecurityLevel | [sikkerhetsnivaa](https://begrep.difi.no/Felles/sikkerhetsnivaa) | 1 |
 | Culture | [språk](https://begrep.difi.no/Felles/spraak) | 1 |
-| AuthMethod | [Autentiseringsmetode](SAMLAssertionV1#AuthMethod) | 1 |
+| AuthMethod | [Autentiseringsmetode](#AuthMethod) | 1 |
 | [reservasjon](https://begrep.difi.no/Felles/reservasjon) | [reservasjon](https://begrep.difi.no/Felles/reservasjon) | 0..1 |
 | [epostadresse](https://begrep.difi.no/Felles/epostadresse) | [epostadresse](https://begrep.difi.no/Felles/epostadresse) | 0..1 |
 | [mobiltelefonnummer](https://begrep.difi.no/Felles/mobiltelefonnummer) | [mobiltelefonnummer](https://begrep.difi.no/Felles/mobiltelefonnummer) | 0..1 |
