@@ -46,19 +46,13 @@ Denne SAML-profilen inneholder alle attributter fra [SAMLAssertionV3](https://be
 | [mobiltelefonnummer](https://begrep.difi.no/Felles/mobiltelefonnummer) | [mobiltelefonnummer](https://begrep.difi.no/Felles/mobiltelefonnummer) | 0..1 |
 | [postkasseleverandoerNavn](https://begrep.difi.no/Felles/postkasseleverandoerNavn) | [postkasseleverandoerNavn](https://begrep.difi.no/Felles/postkasseleverandoerNavn) | 0..1 |
 | [status](https://begrep.difi.no/Felles/status) | Kodeverk for [status](#status) | 0..1 |
-|eidas-PersonIdentifier  |String |CC/NO/xxxxxxxxxx… &nbsp;  CC er ISO3166-1 landkode som har utstedt den aktuelle eIDen. | 0..1 | 
-|eidas-CurrentFamilyName |String | Etternavn | 0..1 |
-|eidas-CurrentGivenName  |String | Fornavn | 0..1 |
-|eidas-DateOfBirth       |Date   | YYYY-MM-DD | 0..1 |
-|eidas-samlResponse       |String | Den komplette, dekrypterte SamlRespons-meldingen som ID-porten mottok fra eIDAS.  Sektor-spesifikke og valgfrie attributter vil finnes her|
-| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
-
-
-I tillegg utleverer vi for ikke-norske eID et statusflagg som forteller kvaliteten på koblinga mot norsk personidentifikator:
-
-| *Term* | *Beskrivelse* | *Kardinalitet* |
-| --- | --- | --- |
-| IdentityMatch | Kvalitetsindikator for kobling ('matching') mot norsk personidentifikator.| 0..1 |
+| IdentityMatch | Kvalitetsindikator for kobling ('matching') mot norsk personidentifikator | 0..1 |
+| eidas-PersonIdentifier  |String |CC/NO/xxxxxxxxxx… &nbsp;  CC er ISO3166-1 landkode som har utstedt den aktuelle eIDen. | 0..1 | 
+| eidas-CurrentFamilyName |String | Etternavn | 0..1 |
+| eidas-CurrentGivenName  |String | Fornavn | 0..1 |
+| eidas-DateOfBirth       |Date   | YYYY-MM-DD | 0..1 |
+| eidas-samlResponse       |String | Den komplette, dekrypterte SamlRespons-meldingen som ID-porten mottok fra eIDAS.  Sektor-spesifikke og valgfrie attributter vil finnes her|
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på vegne av | 0..1 |
 
 
 I fremtiden kan profilen bli utvidet med flere attributter, dersom nye eID blir koblet på løsningen.
