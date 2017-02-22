@@ -45,13 +45,7 @@ table(table table-striped).
 | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | "postkasseleverandoerNavn":/Felles/postkasseleverandoerNavn  | 0..1 |
 | "status":/Felles/status  | Kodeverk for "status":#status | 0..1 |
 | <eidas-attributter> | se under | 1 |
-| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
-
-
-I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS / STORK  (se nærmere definisjoner i rapport "'D5.7.3 Functional Design for PEPS, MW models and interoperability'":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 fra STORK-prosjektet):
-
-table(table table-striped).
-|_.Field |_.Type |_.Values and comment |_. Kardinalitet |
+| "status-dsf":/Felles/status-dsf  | Kodeverk for "status-dsf":#status-dsf | 0..1 |
 |eidas-eIdentifier |String |NC/NC/xxxxxxxxxx…. (NC=NationalityCode, the first one the country of origin of the eIdentifier, the second one the destination country) |1 |
 |eidas-surname |String |inheritedFamilyName / adoptedFamilyName |0..1 |
 |eidas-givenName |String ||0..1 |
@@ -59,15 +53,12 @@ table(table table-striped).
 |eidas-textResidenceAddress |Text ||0..1 |
 |eidas-gender |String(1) |F (Female) / M (Male) |0..1 |
 |eidas-citizenQAAlevel |Number |[1,2,3,4] |0..1 |
+| OnBehalfOf | Referanse til annen Offentlig Virksomhet som forespørselen er gjort på veien av | 0..1 |
+
+
+I tillegg kommer eventuelle attributter fra europeisk eID-intrastruktur, eIDAS / STORK  (se nærmere definisjoner i rapport "'D5.7.3 Functional Design for PEPS, MW models and interoperability'":https://www.eid-stork.eu/index.php?option=com_processes&act=list_documents&id=312&s=1&Itemid=60 fra STORK-prosjektet):
 
 Vær oppmerksom på at noen land kan sende med ekstra attributter utover de som finst i eIDAS-standarden.  Disse vil bli prefixet med "eidas-landskode", og så videreformidlet av ID-porten.
-
-I tillegg utleverer vi et statusflagg for integrasjonen mot DSF:
-
-table(table table-striped).
-|_. Term |_. Beskrivelse |_. Kardinalitet |
-| "status-dsf":/Felles/status-dsf  | Kodeverk for "status-dsf":#status-dsf | 0..1 |
-
 
 
 h3. Kodeverk
