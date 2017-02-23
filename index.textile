@@ -20,10 +20,10 @@ ID-porten har følgende forskjellige profiler:
 
 table(table table-striped).
 |_. Profilnavn |_. Beskrivelse |
-| "SAMLAssertionV1":ID-porten/SAMLAssertionV1 | Standard profil |
-| "SAMLAssertionV2":ID-porten/SAMLAssertionV2 | FORELDET, kun tilgjengelig for å være bakoverkompatibel |
-| "SAMLAssertionV3":ID-porten/SAMLAssertionV3 | Utvidet profil med informasjon fra kontakt og reservasjonsregisteret |
-| "SAMLAssertionV4":ID-porten/SAMLAssertionV4 | FORELDET |
+| "SAMLAssertionV1":SAMLAssertionV1 | Standard profil |
+| "SAMLAssertionV2":SAMLAssertionV2 | FORELDET, kun tilgjengelig for å være bakoverkompatibel |
+| "SAMLAssertionV3":SAMLAssertionV3 | Utvidet profil med informasjon fra kontakt og reservasjonsregisteret |
+| "SAMLAssertionV4":SAMLAssertionV4 | FORELDET |
 | "SAMLAssertionV5":http://difi.github.io/begrep-ID-porten/3_SAMLAssertionv5.html | Oppdatert profil for støtte av europeiske eID gjennom eIDAS, og eventuelt andre eIDer.  |
 
 
