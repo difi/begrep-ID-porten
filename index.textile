@@ -24,6 +24,6 @@ table(table table-striped).
 | "SAMLAssertionV2":SAMLAssertionV2 | FORELDET, kun tilgjengelig for å være bakoverkompatibel |
 | "SAMLAssertionV3":SAMLAssertionV3 | Utvidet profil med informasjon fra kontakt og reservasjonsregisteret |
 | "SAMLAssertionV4":SAMLAssertionV4 | FORELDET |
-| "SAMLAssertionV5":http://difi.github.io/begrep-ID-porten/3_SAMLAssertionv5.html | Oppdatert profil for støtte av europeiske eID gjennom eIDAS, og eventuelt andre eIDer.  |
+| "SAMLAssertionV5":http://difi.github.io/begrep-ID-porten/3_SAMLAssertionv5.html | FORELDET  |
 
 
