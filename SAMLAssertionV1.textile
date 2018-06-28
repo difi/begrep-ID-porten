@@ -41,6 +41,16 @@ table(table table-striped).
 | Commfides	| Bruker har logget seg på med USB-pen med e-ID fra Commfides |
 | BankID	| Bruker har logget seg på med BankID med kodebrikke |
 | BankID Mobil | Bruker har logget seg på med BankID på mobil |
+| eIDAS        | Bruker har logget seg på med en europeisk eID gjennom eIDAS-infrastrukturen, og er blitt entydig gjenkjent med F/D-nummer |
+
+h4. Om eIDAS-pålogging
+
+Mulighet for eIDAS-pålogging må aktiveres i ID-porten per tjeneste, gjennom å sende en bestilling til idporten(at)difi.no.  
+eIDAS sikkerhetsnivå "substantial" blir mappet til sikkerhetstnivå 3, og "high" blir mappet til 4. 
+
+Dersom en eIDAS-bruker ikke blir gjenkjent med F/D-nummer, vil ID-porten vise en feilside.   Tjenesteeier kan derfor være sikker på at han bare vil motta eIDAS-pålogginger av brukere som entydig gjenkjent i Folkeregisteret, og tjenesteeier kan derfor behandle brukeren som om han hadde brukt norsk eID.
+
+Rundt 2020 vil Difi vurdere å aktivere eIDAS automatisk for alle tjenesteeiere.
 
 
 h4. Eksempel
